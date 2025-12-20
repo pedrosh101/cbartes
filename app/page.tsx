@@ -178,17 +178,17 @@ const ConstellationPage = () => {
       <div className="relative w-[90vw] h-[90vh] max-w-6xl">
         {/* Centro */}
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-36 h-36 rounded-full bg-white text-black flex items-center justify-center tracking-widest text-lg font-semibold shadow-[0_0_40px_rgba(255,255,255,0.3)] z-10 animate-pulse-slow"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-26 h-26 rounded-full bg-white text-black flex items-center justify-center tracking-widest text-lg font-semibold shadow-[0_0_40px_rgba(255,255,255,0.3)] z-10 animate-pulse-slow"
           style={{ animation: "pulse-slow 3s ease-in-out infinite" }}
         >
           
-          <Image src={logo} alt="image1" width={120} priority  />
+          <Image src={logo} alt="image1" width={80} priority  />
         </div>
 
         {/* Companhia */}
         <a
           href="/companhia"
-          className="absolute top-[15%] left-1/2 -translate-x-1/2 w-40 h-40 rounded-full bg-red-500/80 flex items-center justify-center text-center tracking-widest text-md font-bold transition-all duration-500 hover:scale-110 hover:bg-red-500 hover:shadow-[0_0_50px_rgba(239,68,68,0.7)] z-10 group"
+          className="absolute top-[15%] left-1/2 -translate-x-1/2 w-26 h-26 rounded-full bg-red-500/80 flex items-center justify-center text-center tracking-widest text-md font-bold transition-all duration-500 hover:scale-110 hover:bg-red-500 hover:shadow-[0_0_50px_rgba(239,68,68,0.7)] z-10 group"
           style={{ animation: "float 6s ease-in-out infinite" }}
         >
           <span className="relative z-10">Companhia</span>
@@ -198,7 +198,7 @@ const ConstellationPage = () => {
         {/* Escola */}
         <a
           href="/escola"
-          className="absolute left-[15%] top-1/2 -translate-y-1/2 w-40 h-40 rounded-full bg-sky-500/80 flex items-center justify-center text-center tracking-widest text-md font-bold transition-all duration-500 hover:scale-110 hover:bg-sky-500 hover:shadow-[0_0_50px_rgba(14,165,233,0.7)] z-10 group"
+          className="absolute left-[15%] top-1/2 -translate-y-1/2 w-26 h-26 rounded-full bg-sky-500/80 flex items-center justify-center text-center tracking-widest text-md font-bold transition-all duration-500 hover:scale-110 hover:bg-sky-500 hover:shadow-[0_0_50px_rgba(14,165,233,0.7)] z-10 group"
           style={{ animation: "float 6s ease-in-out infinite 1.5s" }}
         >
           <span className="relative z-10">Escola</span>
@@ -208,7 +208,7 @@ const ConstellationPage = () => {
         {/* Associação */}
         <a
           href="/associacao"
-          className="absolute right-[15%] top-1/2 -translate-y-1/2 w-40 h-40 rounded-full bg-emerald-500/80 flex items-center justify-center text-center tracking-widest text-md font-bold transition-all duration-500 hover:scale-110 hover:bg-emerald-500 hover:shadow-[0_0_50px_rgba(16,185,129,0.7)] z-10 group"
+          className="absolute right-[15%] top-1/2 -translate-y-1/2 w-26 h-26 rounded-full bg-emerald-500/80 flex items-center justify-center text-center tracking-widest text-md font-bold transition-all duration-500 hover:scale-110 hover:bg-emerald-500 hover:shadow-[0_0_50px_rgba(16,185,129,0.7)] z-10 group"
           style={{ animation: "float 6s ease-in-out infinite 3s" }}
         >
           <span className="relative z-10">Associação</span>
@@ -218,7 +218,7 @@ const ConstellationPage = () => {
         {/* Espaço CBARTES */}
         <a
           href="/espaco"
-          className="absolute bottom-[15%] left-1/2 -translate-x-1/2 w-40 h-40 rounded-full bg-amber-400/80 text-black flex items-center justify-center text-center tracking-widest text-md font-bold transition-all duration-500 hover:scale-110 hover:bg-amber-400 hover:shadow-[0_0_50px_rgba(251,191,36,0.8)] z-10 group"
+          className="absolute bottom-[15%] left-1/2 -translate-x-1/2 w-26 h-26 rounded-full bg-amber-400/80 text-black flex items-center justify-center text-center tracking-widest text-md font-bold transition-all duration-500 hover:scale-110 hover:bg-amber-400 hover:shadow-[0_0_50px_rgba(251,191,36,0.8)] z-10 group"
           style={{ animation: "float 6s ease-in-out infinite 4.5s" }}
         >
           <span className="relative z-10">
