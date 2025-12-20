@@ -1,6 +1,7 @@
+
 export default function Escola() {
   return (
-    <main className="min-h-screen bg-neutral-950 text-white px-8 py-20">
+    <main className="min-h-screen bg-neutral-900 text-white px-8 py-20 font-[futura]">
       
       <header className="max-w-6xl mx-auto mb-20">
         <h1 className="text-5xl font-light tracking-widest text-sky-400 uppercase">
@@ -9,7 +10,7 @@ export default function Escola() {
 
       </header>
 
-      <section className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+<section className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
         
         {/* Cursos */}
         <div className="border border-sky-400/30 rounded-2xl p-8">
@@ -43,3 +44,5 @@ export default function Escola() {
     </main>
   )
 }
+
+

@@ -1,6 +1,6 @@
 export default function EspacoCBARTES() {
   return (
-    <main className="min-h-screen bg-neutral-900 text-white px-8 py-20">
+    <main className="min-h-screen bg-neutral-900 text-white px-8 py-20 font-[futura]">
       
       <header className="max-w-6xl mx-auto mb-20">
         <h1 className="text-5xl font-light tracking-widest text-amber-400 uppercase">

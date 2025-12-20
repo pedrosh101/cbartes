@@ -5,11 +5,23 @@
   --foreground: #171717;
 }
 
+@font-face {
+  font-family: "mat";
+  src: url("../public/fonts/mat.otf");
+}
+
+@font-face {
+  font-family: "futura";
+  src: url("../public/fonts/futura.otf");
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-futura: "futura", sans-serif;
+  --font-mat: "mat", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
