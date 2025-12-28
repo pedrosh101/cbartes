@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Button } from "./ui/button";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -69,8 +70,12 @@ export default function Navbar() {
           </NavItem>
 
           <div className="mt-8">
-            <NavItemSmall href="/agenda">Agenda</NavItemSmall>
-            <NavItemSmall href="/contato">Contato</NavItemSmall>
+            <Button>
+              <NavItemSmall href="/agenda">Agenda</NavItemSmall>
+            </Button>
+            <Button>
+              <NavItemSmall href="/contato">Contato</NavItemSmall>
+            </Button>
           </div>
         </nav>
       </aside>
@@ -99,7 +104,7 @@ function NavItem({
   return (
     <a
       href={href}
-      className={`text-6xl text-white/80 transition-all duration-300 py-2 border-b border-white/10 ${colors[color]}`}
+      className={`text-2xl 2xl:text-6xl text-white/80 transition-all duration-300 py-2 border-b border-white/10 ${colors[color]}`}
     >
       {children}
     </a>
@@ -116,7 +121,7 @@ function NavItemSmall({
   return (
     <a
       href={href}
-      className="block text-lg text-white/70 hover:text-white transition py-2 border-b border-white/10"
+      className="flex flex-col text-lg text-white/70 hover:text-white transition px-6 py-2 border border-white/10 rounded-md"
     >
       {children}
     </a>
