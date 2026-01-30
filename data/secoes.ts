@@ -26,7 +26,7 @@ export const secoes = {
   escola: {
     title: "Escola",
     introTitle: "Escola",
-    description: "Texto institucional da escola",
+    description: "Texto institucional da escola.",
     color:"#5E9F36",
     section: {
       text: "Texto sobre a escola.",
