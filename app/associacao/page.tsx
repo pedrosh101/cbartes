@@ -1,105 +1,106 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { useScroll, useTransform, motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { useScroll, useTransform, motion, useSpring } from "framer-motion";
 import Lenis from "lenis";
 import Image from "next/image";
+
 import NavbarInside from "@/components/navbarInside";
 import image from "@/public/images/8.jpg";
+import CustomCursor from "@/components/cursor";
 
 const projetos = [
   {
-    title: "PIÁrte",
-    subtitle: "Programa Integral de Artes",
-
-    description: "Bolsas integrais para formação em dança e teatro",
-    items: [
+    id: 1,
+    nome: "PIÁrte",
+    subtitulo: "Programa Integral de Artes",
+    cor: "#F5E764",
+    descricao: "Bolsas integrais para formação em dança e teatro",
+    itens: [
       "Bolsas 100% gratuitas para alunos em vulnerabilidade social",
       "Acompanhamento pedagógico especializado",
-      "Figurinos e materiais fornecidos pela Associação",
+      "Figurinos e materiais fornecidos",
       "Participação em espetáculos profissionais",
-      "Edital público de seleção anual"
     ],
-  
+
   },
   {
-    title: "EmpreendArteLab",
-    subtitle: "Formação e Capacitação",
-
-    description: "Desenvolvimento profissional gratuito",
-    items: [
+    id: 2,
+    nome: "EmpreendArteLab",
+    subtitulo: "Formação e Capacitação",
+    cor: "#FFD93D",
+    descricao: "Desenvolvimento profissional gratuito",
+    itens: [
       "Curso de Oratória (vagas gratuitas)",
       "Formação em Iluminação Cênica",
       "Operador de Sonoplastia (jovens aprendizes)",
       "Estágio de professor de dança e teatro",
-      "Capacitação técnica para o mercado cultural"
     ],
 
   },
   {
-    title: "Periferia para Periferia",
-    subtitle: "Arte e Transformação Social",
-
-    description: "Levando arte para comunidades",
-    items: [
+    id: 3,
+    nome: "Periferia para Periferia",
+    subtitulo: "Arte e Transformação Social",
+    cor: "#FFC759",
+    descricao: "Levando arte para comunidades",
+    itens: [
       "Oficinas em comunidades rurais e periféricas",
       "Apresentações gratuitas em escolas públicas",
       "Parceria com projetos sociais (CRAS, FUMBEM)",
-      "Ações em distritos e bairros afastados",
-      "Democratização do acesso à cultura"
+      "Democratização do acesso à cultura",
     ],
 
   },
   {
-    title: "Produção Cultural",
-    subtitle: "Viabilização de Projetos",
-
-    description: "Sustentabilidade das ações artísticas",
-    items: [
+    id: 4,
+    nome: "Produção Cultural",
+    subtitulo: "Viabilização de Projetos",
+    cor: "#E6C744",
+    descricao: "Sustentabilidade das ações artísticas",
+    itens: [
       "Produção de espetáculos de dança (2024 e 2025)",
       "Sessões gratuitas em parceria com instituições",
       "Captação via Lei Rouanet e PNAB",
-      "Organização de oficinas e mini-cursos",
-      "Gestão de projetos culturais"
+      "Gestão de projetos culturais",
     ],
 
   },
   {
-    title: "Arte é Política",
-    subtitle: "Participação",
-
-    description: "Fortalecimento das políticas culturais",
-    items: [
+    id: 5,
+    nome: "Arte é Política",
+    subtitulo: "Participação e Advocacy",
+    cor: "#D4B93C",
+    descricao: "Fortalecimento das políticas culturais",
+    itens: [
       "Participação no Fórum Mineiro de Dança",
       "Articulação em Câmara dos Vereadores (LDO)",
       "Reivindicação da PNAB Municipal",
-      "Pré-Fóruns e encontros setoriais",
-      "Representação da sociedade civil"
+      "Representação da sociedade civil",
     ],
- 
+
   }
 ];
 
-const acoes = [
+const acoesPorAno = [
   {
-    ano: "2024",
+    ano: 2024,
     total: 8,
     destaques: [
-      "Produção dos espetáculos Subvercirco e Pulso Invisível",
-      "Figurinos para 40+ bolsistas",
-      "12 sessões gratuitas para comunidade",
-      "Edital de bolsas para dança e teatro"
+      { titulo: "Produção SUBVERCIRCO", descricao: "Espetáculo de dança contemporânea" },
+      { titulo: "Produção PULSO INVISÍVEL", descricao: "Criação com turmas adultas" },
+      { titulo: "Figurinos para 40+ bolsistas", descricao: "Material completo fornecido" },
+      { titulo: "12 sessões gratuitas", descricao: "Apresentações para a comunidade" },
     ]
   },
   {
-    ano: "2025",
+    ano: 2025,
     total: 12,
     destaques: [
-      "Apresentações gratuitas em parceria com Banco do Nordeste",
-      "Oficina Música e Movimento (UFVJM)",
-      "Curso de Oratória (10 encontros gratuitos)",
-      "Projeto Reescrevendo Histórias (PROCART/UFVJM)",
-      "Produção dos espetáculos de final de ano"
+      { titulo: "Apresentações gratuitas", descricao: "Parceria Banco do Nordeste" },
+      { titulo: "Oficina Música e Movimento", descricao: "UFVJM - 10 vagas gratuitas" },
+      { titulo: "Curso de Oratória", descricao: "10 encontros gratuitos" },
+      { titulo: "Projeto Reescrevendo Histórias", descricao: "PROCART/UFVJM" },
     ]
   }
 ];
@@ -111,228 +112,308 @@ const transparencia = [
   { item: "Documentação fiscal regularizada", status: "Em dia" }
 ];
 
+const depoimentos = [
+  {
+    texto: "A bolsa PIÁrte mudou minha vida. Nunca imaginei que poderia fazer dança profissionalmente. Hoje sou bolsista e participei de 3 espetáculos!",
+    autor: "Ana Carolina",
+    projeto: "Bolsista PIÁrte - Dança"
+  },
+  {
+    texto: "O curso de Oratória do EmpreendArteLab me deu confiança para falar em público. Consegui meu primeiro emprego graças a isso.",
+    autor: "Lucas Mendes",
+    projeto: "EmpreendArteLab"
+  },
+  {
+    texto: "Ver meu filho receber figurino completo e participar de espetáculos gratuitamente é uma realização. A Associação faz a diferença.",
+    autor: "Márcia Silva",
+    projeto: "Mãe de bolsista"
+  }
+];
+
 function Associacao() {
   const container = useRef<HTMLDivElement>(null);
+
 
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0vh", "60vh"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0vh", "50vh"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
+
 
   useEffect(() => {
-    const lenis = new Lenis();
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    });
+
     const raf = (time: number) => {
       lenis.raf(time);
       requestAnimationFrame(raf);
     };
     requestAnimationFrame(raf);
+
+    return () => lenis.destroy();
   }, []);
+
+
 
   return (
     <>
+    <CustomCursor />
       <NavbarInside color="#F5E764" colorText="black" isBlack />
 
-      <main className="font-futura bg-zinc-50">
+
+
+
+      <main className="font-futura bg-black text-white overflow-hidden cursor-none">
         {/* Hero Section */}
         <div
           ref={container}
-          className="relative flex items-center justify-center h-[80vh] overflow-hidden"
+          className="relative flex items-center justify-center h-screen overflow-hidden"
         >
-          <div className="absolute top-[-12vh] left-0 h-[124vh] w-full">
+          <motion.div 
+            className="absolute inset-0"
+            style={{ scale }}
+          >
             <motion.div style={{ y }} className="relative w-full h-full">
+              <div className="absolute inset-0 bg-clr2 opacity-20 mix-blend-multiply z-10" />
               <Image
                 src={image}
                 fill
                 alt="Associação Cultural Amigos do CBARTES"
                 priority
                 style={{ objectFit: "cover" }}
+                className="grayscale-30"
               />
-              <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/20 to-black/70" />
             </motion.div>
-          </div>
+          </motion.div>
 
-          <div className="relative z-10 p-8 md:p-20 text-white w-full h-full flex mt-24">
-            <div className="self-end w-[60vw]">
-              <motion.p 
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                className="text-4xl md:text-[3vw] uppercase font-bold tracking-tight"
-              >
-                ASSOCIAÇÃO CULTURAL
-              </motion.p>
-              <motion.p 
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-4xl md:text-[3vw] uppercase font-bold tracking-tight"
-              >
-                AMIGOS DO CBARTES
-              </motion.p>
-            </div>
-            <motion.p 
+          <motion.div 
+            style={{ opacity }}
+            className="relative z-20 text-center px-8 max-w-7xl mx-auto"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.2 }}
+          
+            >
+              <h1 className="text-[12vw] md:text-[10vw] font-black leading-[0.85] tracking-wider my-4">
+                ASSOCIAÇÃO
+                <br />
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-clr2 to-[#d4b93c]">
+                  CULTURAL
+                </span>
+              </h1>
+            </motion.div>
+
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="w-full text-lg md:text-[2vw] uppercase tracking-wide text-end"
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-xl md:text-3xl mt-8 font-light tracking-wide text-gray-300"
             >
-              Selos aqui
+              Projetos sociais e democratização da cultura
             </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.9 }}
+              className="mt-12 gap-4 justify-center 2xl:flex hidden"
+            >
+              <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+                <span className="text-sm uppercase tracking-widest">PIÁrte</span>
+              </div>
+              <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+                <span className="text-sm uppercase tracking-widest">EmpreendArteLab</span>
+              </div>
+              <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+                <span className="text-sm uppercase tracking-widest">Arte é Política</span>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20">
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+              className="text-white/60 text-sm uppercase tracking-widest flex flex-col items-center gap-2"
+            >
+              <span>Explore</span>
+              <div className="w-px h-12 bg-linear-to-b from-white/60 to-transparent" />
+            </motion.div>
           </div>
         </div>
 
-        {/* Intro Section */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          className="max-w-6xl mx-auto px-8 py-20"
-        >
-          <div className="grid md:grid-cols-3 gap-12">
-            <div className="md:col-span-2">
-              <h2 className="text-5xl md:text-6xl font-bold mb-6 text-zinc-900 leading-tight">
-                Transformando vidas através da arte
-              </h2>
-              <p className="text-xl text-zinc-700 leading-relaxed mb-6">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque est in semper maximus. Donec fermentum ullamcorper sem vitae fermentum. Nullam ac mauris finibus, hendrerit dolor vitae, dictum felis. Mauris nulla ligula, lacinia eget iaculis a, consectetur sit amet augue.
-              </p>
-              <p className="text-lg text-zinc-600 leading-relaxed">
-                Donec fermentum ullamcorper sem vitae fermentum. Nullam ac mauris finibus, hendrerit dolor vitae, dictum felis. Mauris nulla ligula, lacinia eget iaculis a, consectetur sit amet augue.
-              </p>
-            </div>
-            <div className="bg-clr2 p-8 rounded-sm flex flex-col justify-center">
-              <div className="text-6xl font-bold text-zinc-900 mb-2">5</div>
-              <p className="text-sm uppercase tracking-wider text-zinc-800 mb-6">
-                Projetos Estruturantes
-              </p>
-              <div className="text-6xl font-bold text-zinc-900 mb-2">100%</div>
-              <p className="text-sm uppercase tracking-wider text-zinc-800 mb-6">
-                Gratuito
-              </p>
-              <div className="text-6xl font-bold text-zinc-900 mb-2">50+</div>
-              <p className="text-sm uppercase tracking-wider text-zinc-800">
-                Bolsistas atendidos
-              </p>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Projetos Section */}
-        <div className="bg-white py-16">
+        {/* Stats Section */}
+        <section className="relative py-32 bg-linear-to-b from-black to-zinc-900">
           <div className="max-w-7xl mx-auto px-8">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-5xl md:text-7xl font-bold mb-20 text-center text-zinc-900"
-            >
-              Nossos Projetos
-            </motion.h2>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              {projetos.map((projeto, index) => (
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16">
+              {[
+                { value: "5", label: "Projetos Ativos", suffix: "" },
+                { value: "50", label: "Bolsistas", suffix: "+" },
+                { value: "100", label: "Gratuito", suffix: "%" },
+                { value: "3", label: "Anos", suffix: "" },
+              ].map((stat, index) => (
                 <motion.div
-                  key={projeto.title}
-                  initial={{ opacity: 0, y: 40 }}
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, delay: index * 0.05 }}
-                  className="group bg-zinc-50 rounded-sm overflow-hidden hover:shadow-2xl transition-shadow duration-500"
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="text-center group"
+     
                 >
-                  <div 
-                    className="h-2 w-full transition-all duration-300 group-hover:h-3 bg-clr2" 
-            
-                  />
-                  
-                  <div className="p-8">
-                    <div className="flex items-start justify-between mb-4">
-                      <div>
-                        <div className="flex items-center gap-4 mb-2">
-            
-                          <h3 className="text-3xl font-bold text-zinc-900 uppercase tracking-tight">
-                            {projeto.title}
-                          </h3>
-                        </div>
-                        <p className="text-sm uppercase tracking-wider text-zinc-600 mb-3">
-                          {projeto.subtitle}
-                        </p>
-                      </div>
-                    </div>
-
-                    <p className="text-lg font-semibold text-zinc-800 mb-6 leading-snug">
-                      {projeto.description}
-                    </p>
-
-                    <ul className="space-y-3">
-                      {projeto.items.map((item, i) => (
-                        <motion.li
-                          key={i}
-                          initial={{ opacity: 0, x: -10 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.4, delay: i * 0.05 }}
-                          className="flex items-start text-zinc-700 leading-relaxed"
-                        >
-                          <span 
-                            className="w-1.5 h-1.5 rounded-full mt-2 mr-3 shrink-0 bg-clr2"
-                     
-                          />
-                          <span>{item}</span>
-                        </motion.li>
-                      ))}
-                    </ul>
+                  <div className="text-6xl md:text-8xl font-black mb-4 bg-linear-to-br from-clr2 to-[#d4b93c] bg-clip-text text-transparent">
+                    {stat.value}{stat.suffix}
                   </div>
-
-                  <div 
-                    className="h-1 w-0 group-hover:w-full transition-all duration-500 mx-auto bg-clr2" 
-           
-                  />
+                  <div className="text-sm md:text-base uppercase tracking-widest text-gray-400 group-hover:text-white transition-colors duration-300">
+                    {stat.label}
+                  </div>
                 </motion.div>
               ))}
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Ações Realizadas */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="bg-zinc-100 py-20"
-        >
-          <div className="max-w-6xl mx-auto px-8">
-            <h2 className="text-5xl md:text-6xl font-bold mb-12 text-center text-zinc-900">
-              Ações Realizadas
-            </h2>
+        {/* Manifesto */}
+        <section className="py-32 bg-zinc-900">
+          <div className="max-w-4xl mx-auto px-8 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-4xl md:text-6xl font-black mb-8">
+                Transformando vidas através da <span className="text-clr2">arte</span>
+              </h2>
+              <p className="text-xl text-gray-400 leading-relaxed font-light">
+                A Associação Cultural Amigos do CBARTES é uma organização sem fins lucrativos 
+                dedicada a democratizar o acesso às artes e fortalecer as políticas culturais 
+                em Diamantina e região. Garantimos que crianças, jovens e adultos em vulnerabilidade 
+                social tenham oportunidades reais de formação artística de qualidade.
+              </p>
+            </motion.div>
+          </div>
+        </section>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              {acoes.map((acao, index) => (
+        {/* Projetos */}
+        <section className="py-32 bg-black">
+          <div className="max-w-7xl mx-auto px-8">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="mb-20"
+            >
+              <h2 className="text-8xl  font-black mb-6 leading-none">
+                Nossos
+                <br />
+                <span className="text-clr2">Projetos</span>
+              </h2>
+              <div className="w-32 h-1 bg-linear-to-r from-clr2 to-transparent" />
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {projetos.map((projeto, index) => (
+                <motion.div
+                  key={projeto.id}
+                  initial={{ opacity: 0, y: 60 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
+  
+                  className="group relative"
+                >
+                  <div className="relative overflow-hidden bg-zinc-800 rounded-sm h-full p-8 border border-zinc-700 hover:border-clr2 transition-all duration-500">
+                    <div 
+                      className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
+                      style={{
+                        background: `radial-gradient(circle at 50% 50%, ${projeto.cor}, transparent 70%)`
+                      }}
+                    />
+
+                    <div className="relative z-10">
+                 
+                      
+                      <h3 className="text-3xl font-black uppercase tracking-tight mb-2 group-hover:text-clr2 transition-colors duration-300">
+                        {projeto.nome}
+                      </h3>
+
+                      <p className="text-sm uppercase tracking-wider text-gray-500 mb-4">
+                        {projeto.subtitulo}
+                      </p>
+                      
+                      <div className="h-px w-16 bg-clr2 mb-6 group-hover:w-full transition-all duration-500" />
+
+                      <p className="text-base font-semibold text-gray-300 mb-6">
+                        {projeto.descricao}
+                      </p>
+
+                      <ul className="space-y-3">
+                        {projeto.itens.map((item, i) => (
+                          <li key={i} className="flex items-start text-sm text-gray-400">
+                            <span 
+                              className="w-1.5 h-1.5 rounded-full mt-2 mr-3 shrink-0"
+                              style={{ backgroundColor: projeto.cor }}
+                            />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Ações por Ano */}
+        <section className="py-32 bg-zinc-900">
+          <div className="max-w-7xl mx-auto px-8">
+            <motion.h2
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-6xl md:text-7xl font-black mb-16 text-center"
+            >
+              Ações <span className="text-clr2">Realizadas</span>
+            </motion.h2>
+
+            <div className="grid md:grid-cols-2 gap-12">
+              {acoesPorAno.map((acao, index) => (
                 <motion.div
                   key={acao.ano}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white p-8 rounded-sm border-l-4 border-clr2"
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  className="bg-black border border-zinc-800 rounded-sm p-8 hover:border-clr2 transition-colors duration-300"
                 >
-                  <div className="flex gap-4 mb-6 w-full justify-between">
-                    <h3 className="text-6xl font-black text-zinc-900">{acao.ano}</h3>
-                    <div className="">
+                  <div className="flex items-baseline gap-6 mb-8">
+                    <div className="text-7xl font-black text-transparent bg-clip-text bg-linear-to-r from-clr2 to-[#d4b93c]">
+                      {acao.ano}
+                    </div>
+                    <div>
                       <div className="text-4xl font-bold text-clr2">{acao.total}</div>
-                      <p className="text-sm uppercase tracking-wider text-zinc-600">
+                      <p className="text-sm uppercase tracking-wider text-gray-500">
                         Ações realizadas
                       </p>
                     </div>
                   </div>
 
-                  <div className="space-y-3">
+                  <div className="space-y-4">
                     {acao.destaques.map((destaque, i) => (
-                      <div key={i} className="flex items-start gap-3">
-                        <div className="w-2 h-2 rounded-full bg-clr2 mt-1.5 shrink-0" />
-                        <p className="text-zinc-700 leading-relaxed">{destaque}</p>
+                      <div key={i} className="border-l-2 border-clr2 pl-4 py-2">
+                        <p className="font-bold text-white mb-1">{destaque.titulo}</p>
+                        <p className="text-sm text-gray-400">{destaque.descricao}</p>
                       </div>
                     ))}
                   </div>
@@ -340,47 +421,64 @@ function Associacao() {
               ))}
             </div>
           </div>
-        </motion.div>
+        </section>
 
-        {/* Histórico e Fundação */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="bg-white py-20"
-        >
-          <div className="max-w-4xl mx-auto px-8">
-            <h2 className="text-5xl md:text-6xl font-bold mb-8 text-zinc-900">
-              Nossa História
-            </h2>
-            
-            <div className="space-y-6 text-lg text-zinc-700 leading-relaxed">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque est in semper maximus. Donec fermentum ullamcorper sem vitae fermentum. Nullam ac mauris finibus, hendrerit dolor vitae, dictum felis. Mauris nulla ligula, lacinia eget iaculis a, consectetur sit amet augue.
-              </p>
-              
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque est in semper maximus. Donec fermentum ullamcorper sem vitae fermentum. Nullam ac mauris finibus, hendrerit dolor vitae, dictum felis. Mauris nulla ligula, lacinia eget iaculis a, consectetur sit amet augue.
-              </p>
+        {/* Depoimentos */}
+        <section className="py-32 bg-black">
+          <div className="max-w-7xl mx-auto px-8">
+            <motion.h2
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-6xl md:text-7xl font-black mb-16 text-center"
+            >
+              Histórias de <span className="text-clr2">Transformação</span>
+            </motion.h2>
 
-              <p className="font-semibold text-zinc-900">
-                Mauris nulla ligula, lacinia eget iaculis a, consectetur sit amet augue.
-              </p>
+            <div className="grid md:grid-cols-3 gap-8">
+              {depoimentos.map((depoimento, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
+       
+                  className="group bg-zinc-900 p-8 rounded-sm border border-zinc-800 hover:border-clr2 transition-all duration-500 relative"
+                >
+                  <div className="mb-6">
+                    <svg className="w-12 h-12 text-clr2 opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                    </svg>
+                  </div>
+                  
+                  <p className="text-lg leading-relaxed text-gray-300 mb-6 font-light italic">
+                    "{depoimento.texto}"
+                  </p>
+                  
+                  <div className="border-t border-zinc-800 pt-4">
+                    <p className="font-bold text-white mb-1">{depoimento.autor}</p>
+                    <p className="text-sm text-gray-500 uppercase tracking-wider">{depoimento.projeto}</p>
+                  </div>
+
+                  <div className="absolute bottom-0 left-0 w-0 h-1 bg-clr2 group-hover:w-full transition-all duration-500" />
+                </motion.div>
+              ))}
             </div>
           </div>
-        </motion.div>
+        </section>
 
         {/* Transparência */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="bg-zinc-900 text-white py-20"
-        >
+        <section className="py-32 bg-zinc-900">
           <div className="max-w-6xl mx-auto px-8">
-            <h2 className="text-5xl md:text-6xl font-bold mb-12 text-center">
+            <motion.h2
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-5xl md:text-6xl font-black mb-12 text-center"
+            >
               Compromisso com a <span className="text-clr2">Transparência</span>
-            </h2>
+            </motion.h2>
 
             <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
               {transparencia.map((item, index) => (
@@ -390,61 +488,74 @@ function Associacao() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-zinc-800 p-6 rounded-sm border  border-zinc-700 hover:border-clr2 transition-colors duration-300"
+                  className="bg-black p-6 rounded-sm border border-zinc-800 hover:border-clr2 transition-colors duration-300"
                 >
                   <div className="flex items-center justify-between">
                     <p className="text-lg font-semibold">{item.item}</p>
-                    <span className="px-4 py-1 bg-clr2 text-zinc-900 text-sm font-bold rounded-full w-25 text-center">
+                    <span className="px-4 py-1 bg-clr2 text-black text-sm font-bold rounded-full">
                       {item.status}
                     </span>
                   </div>
                 </motion.div>
               ))}
             </div>
+          </div>
+        </section>
 
-            <motion.div
+        {/* CTA Final */}
+        <section className="py-32 bg-linear-to-b from-black to-zinc-900 relative overflow-hidden">
+          <motion.div
+            className="absolute inset-0"
+            style={{
+              background: `radial-gradient(circle at 50% 50%, #F5E76420, transparent 70%)`
+            }}
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.6, 0.3],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+
+          <div className="max-w-4xl mx-auto px-8 text-center relative z-10">
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-5xl md:text-7xl font-black mb-8"
+            >
+              Faça parte dessa transformação
+            </motion.h2>
+            
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="mt-12 text-center"
+              transition={{ delay: 0.2 }}
+              className="text-xl md:text-2xl text-gray-400 mb-12 leading-relaxed"
             >
-              <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-                Todos os nossos projetos são executados com prestação de contas pública, 
-                editais transparentes e documentação regularizada.
-              </p>
-            </motion.div>
-          </div>
-        </motion.div>
-
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="bg-linear-to-br from-clr2 to-[#E6C744] py-20"
-        >
-          <div className="max-w-4xl mx-auto px-8 text-center">
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 text-zinc-900">
-              Faça parte dessa transformação
-            </h2>
-            
-            <p className="text-xl md:text-2xl text-zinc-800 mb-10 leading-relaxed">
               Apoie nossos projetos, seja voluntário ou participe dos editais públicos.
               <br />
               Juntos, fortalecemos a cultura e transformamos vidas.
-            </p>
+            </motion.p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-10 py-4 bg-zinc-900 text-white text-lg font-bold uppercase tracking-wider rounded-sm hover:bg-zinc-800 transition-colors duration-300 shadow-xl">
-                Apoiar Projeto
-              </button>
-              <button className="px-10 py-4 bg-white text-zinc-900 text-lg font-bold uppercase tracking-wider rounded-sm hover:bg-zinc-100 transition-colors duration-300 shadow-xl">
-                Ver Editais
-              </button>
-            </div>
+            <motion.button
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+      
+              className="px-12 py-5 bg-clr2 text-black text-lg font-bold uppercase tracking-widest rounded-full hover:bg-[#d4b93c] transition-colors duration-300 shadow-2xl shadow-clr2/50"
+            >
+              Apoiar Projeto
+            </motion.button>
           </div>
-        </motion.div>
+        </section>
       </main>
     </>
   );

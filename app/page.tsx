@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { useRef } from "react";
 import Lenis from "lenis";
+import CustomCursor from "@/components/cursor";
 
 const HomePage = () => {
   const videoRefs = [
@@ -65,14 +66,15 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="h-screen w-screen bg-white flex items-center justify-center p-4 md:p-8">
+    <CustomCursor />
+      <div className="h-screen w-screen bg-zinc-900 flex items-center justify-center p-4 md:p-8">
         <div className="relative w-full h-full rounded-2xl md:rounded-3xl overflow-hidden">
           {/* Grid de vídeos */}
-          <div className="grid grid-cols-1 md:grid-cols-2 grid-rows-4 md:grid-rows-2 w-full h-full gap-0.5 bg-white">
+          <div className="grid grid-cols-1 md:grid-cols-2 grid-rows-4 md:grid-rows-2 w-full h-full gap-0.5 bg-zinc-900">
             {videos.map((item, index) => (
               <Link href={item.href} key={index}>
                 <div
-                  className="relative overflow-hidden group cursor-pointer h-full touch-manipulation"
+                  className="relative overflow-hidden group h-full touch-manipulation"
                   onMouseEnter={() => handleMouseEnter(index)}
                   onMouseLeave={() => handleMouseLeave(index)}
                 >

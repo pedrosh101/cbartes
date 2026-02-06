@@ -6,6 +6,7 @@ import Lenis from "lenis";
 import Image from "next/image";
 import NavbarInside from "@/components/navbarInside";
 import image from "@/public/images/5.jpg";
+import CustomCursor from "@/components/cursor";
 
 const nucleos = [
   {
@@ -74,6 +75,7 @@ const timeline = [
 
 function Companhia() {
   const container = useRef<HTMLDivElement>(null);
+  const cursorVariant = "default";
 
   const { scrollYProgress } = useScroll({
     target: container,
@@ -101,6 +103,7 @@ function Companhia() {
   return (
     <>
       <NavbarInside color="#F1443E" />
+      <CustomCursor />
 
       <main className="font-futura bg-white text-black overflow-hidden">
         {/* Hero Section - Minimalista */}

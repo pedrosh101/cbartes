@@ -14,7 +14,9 @@ import Link from "next/link";
 import NavbarInside from "@/components/navbarInside";
 import image from "@/public/images/1.jpg";
 import ctaImage from "@/public/images/5.jpg";
+import { getEspetaculosParaTimeline } from "@/data/espetaculos";
 import {depoimentos} from "@/data/depoimentos"
+import CustomCursor from "@/components/cursor";
 
 const cursos = [
   {
@@ -49,42 +51,7 @@ const cursosLivres = [
   { nome: "Sonoplastia", vagas: "Estágio gratuito" },
 ];
 
-const espetaculosPorAno = [
-  {
-    ano: 2022,
-    espetaculos: [{ titulo: "PECADO", slug: "pecado" }],
-  },
-  {
-    ano: 2023,
-    espetaculos: [
-      { titulo: "A CASA DOS MISTÉRIOS", slug: "a-casa-dos-misterios" },
-      { titulo: "ESPAÇO SAGRADO", slug: "espaco-sagrado" },
-      { titulo: "CAMINHOS", slug: "caminhos" },
-      { titulo: "A GREVE DO SEXO", slug: "a-greve-do-sexo" },
-    ],
-  },
-  {
-    ano: 2024,
-    espetaculos: [
-      { titulo: "A BRUXINHA QUE ERA BOA", slug: "a-bruxinha-que-era-boa" },
-      { titulo: "COM AMOR SHAKESPEARE", slug: "com-amor-shakespeare" },
-      { titulo: "ROXAS", slug: "roxas" },
-      { titulo: "SUBVERCIRCO", slug: "subvercirco" },
-      { titulo: "PULSO INVISÍVEL", slug: "pulso-invisivel" },
-      { titulo: "RUPTURA DO SILÊNCIO", slug: "ruptura-do-silencio" },
-    ],
-  },
-  {
-    ano: 2025,
-    espetaculos: [
-      { titulo: "A DROGA DA OBEDIÊNCIA", slug: "a-droga-da-obediencia" },
-      { titulo: "O AUTO DA COMPADECIDA", slug: "o-auto-da-compadecida" },
-      { titulo: "DOROTEIA", slug: "doroteia" },
-      { titulo: "BRINCANTES", slug: "brincantes" },
-      { titulo: "CIRCUNSDANÇAS DA VIDA", slug: "circunsdancas-da-vida" },
-    ],
-  },
-];
+const espetaculosPorAno = getEspetaculosParaTimeline();
 
 
 
@@ -129,7 +96,7 @@ function CounterAnimation({
 
 function Escola() {
   const container = useRef<HTMLDivElement>(null);
-  const [cursorVariant, setCursorVariant] = useState("default");
+
 
   const { scrollYProgress } = useScroll({
     target: container,
@@ -140,8 +107,7 @@ function Escola() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
 
-  const smoothMouseX = useSpring(0, { stiffness: 300, damping: 25 });
-  const smoothMouseY = useSpring(0, { stiffness: 300, damping: 25 });
+ 
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -158,42 +124,15 @@ function Escola() {
     return () => lenis.destroy();
   }, []);
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      smoothMouseX.set(e.clientX);
-      smoothMouseY.set(e.clientY);
-    };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [smoothMouseX, smoothMouseY]);
 
-  const cursorX = useTransform(smoothMouseX, (value) => value - 20);
-  const cursorY = useTransform(smoothMouseY, (value) => value - 20);
 
   return (
     <>
+    <CustomCursor />
       <NavbarInside color="#649D3F" />
 
-      {/* Custom SVG Cursor */}
-      <motion.div
-        className="fixed top-0 left-0 w-10 h-10 pointer-events-none z-9999 hidden md:block"
-        style={{ x: cursorX, y: cursorY }}
-      >
-        <motion.svg
-          width="40"
-          height="40"
-          viewBox="0 0 40 40"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          animate={{
-            scale: cursorVariant === "hover" ? 1.5 : 1,
-          }}
-          transition={{ type: "spring", stiffness: 400, damping: 25 }}
-        >
-          <image href="/cursor.svg" width="40" height="40" />
-        </motion.svg>
-      </motion.div>
+
 
       <main className="font-futura bg-black text-white overflow-hidden cursor-none">
         {/* Hero Section */}
@@ -294,8 +233,7 @@ function Escola() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="text-center group"
-                  onMouseEnter={() => setCursorVariant("hover")}
-                  onMouseLeave={() => setCursorVariant("default")}
+           
                 >
                   <div className="text-6xl md:text-8xl font-black mb-4 bg-linear-to-br from-clr3 to-[#365e1c] bg-clip-text text-transparent">
                     <CounterAnimation value={stat.value} suffix={stat.suffix} />
@@ -318,7 +256,7 @@ function Escola() {
               viewport={{ once: true }}
               className="mb-20"
             >
-              <h2 className="text-7xl md:text-9xl font-black mb-6 leading-none">
+              <h2 className="text-8xl font-black mb-6 leading-none">
                 Cursos
                 <br />
                 <span className="text-clr3">Regulares</span>
@@ -334,8 +272,7 @@ function Escola() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.8, delay: index * 0.15 }}
-                  onMouseEnter={() => setCursorVariant("hover")}
-                  onMouseLeave={() => setCursorVariant("default")}
+               
                   className="group relative"
                 >
                   <div className="relative overflow-hidden bg-zinc-800 rounded-sm h-full p-8 border border-zinc-700 hover:border-clr3 transition-all duration-500">
@@ -425,8 +362,7 @@ function Escola() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover={{ scale: 1.05, y: -10 }}
-                  onMouseEnter={() => setCursorVariant("hover")}
-                  onMouseLeave={() => setCursorVariant("default")}
+             
                   className="group relative bg-linear-to-br from-zinc-900 to-zinc-800 p-8 rounded-sm border border-zinc-700 hover:border-clr3 transition-all duration-300"
                 >
                   <h3 className="text-3xl font-bold mb-3 uppercase">
@@ -490,8 +426,8 @@ function Escola() {
                       <div className="space-y-3">
                         {item.espetaculos.map((espetaculo, espIndex) => (
                           <Link
-                            key={espetaculo.slug}
-                            href={`/escola/espetaculo/${espetaculo.slug}`}
+                            key={espetaculo.espetaculo}
+                            href={`/escola/espetaculo/${espetaculo.espetaculo}`}
                           >
                             <motion.div
                               initial={{
@@ -505,8 +441,7 @@ function Escola() {
                                 delay: espIndex * 0.1,
                               }}
                               whileHover={{ x: index % 2 === 0 ? -5 : 5 }}
-                              onMouseEnter={() => setCursorVariant("hover")}
-                              onMouseLeave={() => setCursorVariant("default")}
+                      
                               className="group  flex items-center gap-3"
                             >
                               <div className="w-2 h-2 rounded-full bg-zinc-600 group-hover:bg-clr3 transition-colors duration-300" />
@@ -535,7 +470,7 @@ function Escola() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-7xl md:text-8xl font-black mb-20 text-center"
+              className="text-8xl font-black mb-20 text-center"
             >
               O que falam <span className="text-clr3">sobre nós</span>
             </motion.h2>
@@ -548,8 +483,7 @@ function Escola() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.6, delay: index * 0.15 }}
-                  onMouseEnter={() => setCursorVariant("hover")}
-                  onMouseLeave={() => setCursorVariant("default")}
+      
                   className="group bg-zinc-900 p-8 rounded-sm border border-zinc-800 hover:border-clr3 transition-all duration-500"
                 >
                   <div className="mb-6">
@@ -625,8 +559,7 @@ function Escola() {
               transition={{ delay: 0.4 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onMouseEnter={() => setCursorVariant("hover")}
-              onMouseLeave={() => setCursorVariant("default")}
+     
               className="px-12 py-5 bg-clr3 text-white text-lg font-bold uppercase tracking-widest rounded-full hover:bg-[#365e1c] transition-colors duration-300 shadow-2xl shadow-clr3/50"
             >
               Inscreva-se agora

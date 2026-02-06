@@ -8,12 +8,13 @@ import Link from "next/link";
 import NavbarInside from "@/components/navbarInside";
 import image from "@/public/images/3.jpg";
 import { galeria } from "@/data/galeria";
+import CustomCursor from "@/components/cursor";
 
 
 
 function EspacoCultural() {
   const container = useRef<HTMLDivElement>(null);
-  const [cursorVariant, setCursorVariant] = useState("default");
+
 
   const { scrollYProgress } = useScroll({
     target: container,
@@ -24,8 +25,7 @@ function EspacoCultural() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
 
-  const smoothMouseX = useSpring(0, { stiffness: 300, damping: 25 });
-  const smoothMouseY = useSpring(0, { stiffness: 300, damping: 25 });
+
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -42,43 +42,15 @@ function EspacoCultural() {
     return () => lenis.destroy();
   }, []);
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      smoothMouseX.set(e.clientX);
-      smoothMouseY.set(e.clientY);
-    };
+ 
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [smoothMouseX, smoothMouseY]);
-
-  const cursorX = useTransform(smoothMouseX, (value) => value - 20);
-  const cursorY = useTransform(smoothMouseY, (value) => value - 20);
 
   return (
     <>
+    <CustomCursor />
       <NavbarInside color="#3E6AF3" />
 
-      {/* Custom SVG Cursor */}
-      <motion.div
-        className="fixed top-0 left-0 w-10 h-10 pointer-events-none z-9999 hidden md:block"
-        style={{ x: cursorX, y: cursorY }}
-      >
-        <motion.svg
-          width="40"
-          height="40"
-          viewBox="0 0 40 40"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          animate={{
-            scale: cursorVariant === "hover" ? 1.5 : 1,
-          }}
-          transition={{ type: "spring", stiffness: 400, damping: 25 }}
-        >
-          <image href="/cursor.svg" width="40" height="40" />
-        </motion.svg>
-      </motion.div>
-
+     
       <main className="font-futura bg-black text-white overflow-hidden cursor-none">
         {/* Hero Section */}
         <div
@@ -177,8 +149,7 @@ function EspacoCultural() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="text-center group"
-                  onMouseEnter={() => setCursorVariant("hover")}
-                  onMouseLeave={() => setCursorVariant("default")}
+          
                 >
                   <div className="text-6xl md:text-8xl font-black mb-4 bg-linear-to-br from-clr4 to-[#2a5299] bg-clip-text text-transparent">
                     {stat.value}{stat.suffix}
@@ -222,7 +193,7 @@ function EspacoCultural() {
               viewport={{ once: true }}
               className="mb-20"
             >
-              <h2 className="text-7xl md:text-9xl font-black mb-6 leading-none">
+              <h2 className="text-8xl  font-black mb-6 leading-none">
                 Nossas
                 <br />
                 <span className="text-clr4">Ações</span>
@@ -238,12 +209,11 @@ function EspacoCultural() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.8, delay: index * 0.05 }}
-                  onMouseEnter={() => setCursorVariant("hover")}
-                  onMouseLeave={() => setCursorVariant("default")}
+           
                   className="group relative"
                 >
                   <Link href={section.link}>
-                    <div className="relative overflow-hidden bg-zinc-800 rounded-sm h-full p-8 border border-zinc-700 hover:border-clr4 transition-all duration-500 cursor-pointer">
+                    <div className="relative overflow-hidden bg-zinc-800 rounded-sm h-full p-8 border border-zinc-700 hover:border-clr4 transition-all duration-500">
                       <div 
                         className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
                         style={{
@@ -397,8 +367,7 @@ function EspacoCultural() {
               transition={{ delay: 0.4 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onMouseEnter={() => setCursorVariant("hover")}
-              onMouseLeave={() => setCursorVariant("default")}
+    
               className="px-12 py-5 bg-clr4 text-white text-lg font-bold uppercase tracking-widest rounded-full hover:bg-[#2a5299] transition-colors duration-300 shadow-2xl shadow-clr4/50"
             >
               Entre em contato
