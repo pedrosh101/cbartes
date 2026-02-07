@@ -73,11 +73,10 @@ function EspetaculoPage() {
       </>
     );
   }
-
-  // Gera array de imagens baseado na quantidade disponível
+  
   const imagens = espetaculo.imagensCount > 0 
     ? Array.from({ length: espetaculo.imagensCount }, (_, i) => ({
-        src: `/images/espetaculos/${espetaculo.slug}/${i + 1}.jpg`,
+        src: `/images/espetaculos/${espetaculo.slug}/${i + 1}.webp`,
         alt: `${espetaculo.titulo} - Foto ${i + 1}`,
         index: i,
       }))
@@ -232,11 +231,7 @@ function EspetaculoPage() {
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
                     
-                    <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span className="text-sm font-bold text-zinc-900">
-                        {index + 1}/{imagens.length}
-                      </span>
-                    </div>
+
                   </motion.div>
                 ))}
               </div>

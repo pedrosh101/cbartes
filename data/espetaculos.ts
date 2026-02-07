@@ -66,7 +66,7 @@ export const espetaculos: Record<string, Espetaculo> = {
     sessoes: 3,
     sinopse: "Direção e concepção de Ditto Leite. Uma investigação coreográfica sobre os espaços que habitamos, físicos e emocionais, e sua relação com o sagrado do movimento.",
     fichaTecnica: "Direção e concepção: Ditto Leite",
-    imagensCount: 0,
+    imagensCount: 17,
   },
 
   "caminhos": {
@@ -115,7 +115,7 @@ export const espetaculos: Record<string, Espetaculo> = {
     sessoes: 1,
     sinopse: "Adaptação da obra de Maria Clara Machado. Uma história encantadora sobre bondade, aceitação e a quebra de preconceitos, adaptada e dirigida por Jean Gimenes.",
     fichaTecnica: "Adaptação e direção: Jean Gimenes",
-    imagensCount: 0,
+    imagensCount: 13,
   },
 
   "com-amor-shakespeare": {
@@ -131,7 +131,7 @@ export const espetaculos: Record<string, Espetaculo> = {
     sessoes: 1,
     sinopse: "Texto e direção de Jean Gimenes. Uma homenagem ao bardo inglês através de cenas icônicas e releituras contemporâneas de suas obras mais conhecidas.",
     fichaTecnica: "Texto e direção: Jean Gimenes",
-    imagensCount: 0,
+    imagensCount: 13,
   },
 
   "roxas": {
@@ -147,7 +147,7 @@ export const espetaculos: Record<string, Espetaculo> = {
     sessoes: 1,
     sinopse: "Adaptação do texto 'A Mancha Roxa' de Plínio Marcos. Uma obra visceral que aborda temas sociais urgentes com a intensidade característica do autor.",
     fichaTecnica: "Adaptação e direção: Jean Gimenes",
-    imagensCount: 0,
+    imagensCount: 8,
   },
 
   "subvercirco": {
@@ -180,7 +180,7 @@ export const espetaculos: Record<string, Espetaculo> = {
     sessoes: 3,
     sinopse: "Concepção e direção de Ditto Leite. Uma investigação sobre os ritmos internos que regem nossos corpos e existências, tornando visível o pulso que nos move.",
     fichaTecnica: "Concepção e direção: Ditto Leite | Direção de produção: Associação Cultural Amigos do CBARTES",
-    imagensCount: 0,
+    imagensCount: 25,
   },
 
   "ruptura-do-silencio": {
@@ -213,7 +213,7 @@ export const espetaculos: Record<string, Espetaculo> = {
     sessoes: 3,
     sinopse: "Adaptação e direção de Jean Gimenes. Baseado na obra homônima, uma aventura que questiona a obediência cega e estimula o pensamento crítico nos jovens.",
     fichaTecnica: "Adaptação e direção: Jean Gimenes",
-    imagensCount: 0,
+    imagensCount: 13,
   },
 
   "o-auto-da-compadecida": {
@@ -229,7 +229,7 @@ export const espetaculos: Record<string, Espetaculo> = {
     sessoes: 3,
     sinopse: "Adaptação e direção de Jean Gimenes. O clássico de Ariano Suassuna ganha vida com a energia e criatividade dos jovens atores do CBARTES.",
     fichaTecnica: "Adaptação e direção: Jean Gimenes",
-    imagensCount: 5,
+    imagensCount: 17,
     destaque: true,
   },
 
@@ -246,7 +246,7 @@ export const espetaculos: Record<string, Espetaculo> = {
     sessoes: 5,
     sinopse: "Texto de Nelson Rodrigues, adaptação e direção de Jean Gimenes. Uma obra provocativa que explora as complexidades da sexualidade e da moral na sociedade brasileira.",
     fichaTecnica: "Adaptação e direção: Jean Gimenes",
-    imagensCount: 0,
+    imagensCount: 16,
   },
 
   "brincantes": {
