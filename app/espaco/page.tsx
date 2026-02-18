@@ -1,20 +1,20 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { useScroll, useTransform, motion, useSpring } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { useScroll, useTransform, motion } from "framer-motion";
 import Lenis from "lenis";
 import Image from "next/image";
 import Link from "next/link";
 import NavbarInside from "@/components/navbarInside";
 import image from "@/public/images/3.jpg";
+import ctaImage from "@/public/images/pulso.webp";
 import { galeria } from "@/data/galeria";
 import CustomCursor from "@/components/cursor";
-
-
+import Footer from "@/components/footer";
+import { SelosLoop } from "@/components/selosloop";
 
 function EspacoCultural() {
   const container = useRef<HTMLDivElement>(null);
-
 
   const { scrollYProgress } = useScroll({
     target: container,
@@ -24,8 +24,6 @@ function EspacoCultural() {
   const y = useTransform(scrollYProgress, [0, 1], ["0vh", "50vh"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
-
-
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -42,25 +40,18 @@ function EspacoCultural() {
     return () => lenis.destroy();
   }, []);
 
- 
-
-
   return (
     <>
-    <CustomCursor />
+      <CustomCursor />
       <NavbarInside color="#3E6AF3" />
 
-     
       <main className="font-futura bg-black text-white overflow-hidden cursor-none">
         {/* Hero Section */}
         <div
           ref={container}
           className="relative flex items-center justify-center h-screen overflow-hidden"
         >
-          <motion.div 
-            className="absolute inset-0"
-            style={{ scale }}
-          >
+          <motion.div className="absolute inset-0" style={{ scale }}>
             <motion.div style={{ y }} className="relative w-full h-full">
               <div className="absolute inset-0 bg-clr4 opacity-30 mix-blend-multiply z-10" />
               <Image
@@ -74,9 +65,9 @@ function EspacoCultural() {
             </motion.div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             style={{ opacity }}
-            className="relative z-20 text-center px-8 max-w-7xl mx-auto"
+            className="relative z-20 text-center px-8 max-w-8xl mx-auto"
           >
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -84,11 +75,11 @@ function EspacoCultural() {
               transition={{ duration: 1, delay: 0.2 }}
               className="overflow-hidden"
             >
-              <h1 className="text-[12vw] md:text-[10vw] font-black leading-[0.85] tracking-wider my-4">
-                ESPAÇO
+              <h1 className="text-[12vw] md:text-[5.5vw] font-black leading-none tracking-wider my-4">
+                ESPAÇO E PONTO DE CULTURA
                 <br />
                 <span className="text-transparent bg-clip-text bg-linear-to-r from-clr4 to-[#2a5299]">
-                  CULTURAL
+                  CAMPO BELO DAS ARTES
                 </span>
               </h1>
             </motion.div>
@@ -99,7 +90,8 @@ function EspacoCultural() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-xl md:text-3xl mt-8 font-light tracking-wide text-gray-300"
             >
-              Produção cultural, eventos e ocupação do espaço
+              Território vivo de criação, formação, acesso a arte como direito e
+              economia criativa
             </motion.p>
 
             <motion.div
@@ -109,13 +101,19 @@ function EspacoCultural() {
               className="mt-12 gap-4 justify-center 2xl:flex hidden"
             >
               <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-                <span className="text-sm uppercase tracking-widest">Ponto de Cultura</span>
+                <span className="text-sm uppercase tracking-widest">
+                  Ponto de Cultura
+                </span>
               </div>
               <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-                <span className="text-sm uppercase tracking-widest">Galeria</span>
+                <span className="text-sm uppercase tracking-widest">
+                  Galeria
+                </span>
               </div>
               <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-                <span className="text-sm uppercase tracking-widest">Produção</span>
+                <span className="text-sm uppercase tracking-widest">
+                  Produção
+                </span>
               </div>
             </motion.div>
           </motion.div>
@@ -132,15 +130,30 @@ function EspacoCultural() {
           </div>
         </div>
 
-        {/* Stats Section */}
-        <section className="relative py-32 bg-linear-to-b from-black to-zinc-900">
-          <div className="max-w-7xl mx-auto px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16">
+        {/* ── Selos + Stats ── */}
+        <section className="relative bg-linear-to-b from-black to-zinc-900">
+          <SelosLoop items={[1, 2, 3]} />
+          <div className="max-w-7xl mx-auto px-8 py-24">
+            {/* Título da seção */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-5xl md:text-6xl font-black mb-4">
+                Principais <span className="text-clr4">Ações</span>
+              </h2>
+              <div className="w-32 h-1 bg-linear-to-r from-clr4 to-transparent mx-auto" />
+            </motion.div>
+
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-16">
               {[
-                { value: 42, label: "Articulações", suffix: "" },
-                { value: 18, label: "Oficinas", suffix: "" },
+                { value: 20, label: "Eventos", suffix: "+" },
                 { value: 14, label: "Exposições", suffix: "" },
-                { value: 3, label: "Anos", suffix: "" },
+                { value: 18, label: "Oficinas", suffix: "+" },
+                { value: 42, label: "Articulações em Rede", suffix: "" },
+                { value: 50, label: "Artistas Recebidos", suffix: "+" },
               ].map((stat, index) => (
                 <motion.div
                   key={stat.label}
@@ -149,10 +162,10 @@ function EspacoCultural() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="text-center group"
-          
                 >
                   <div className="text-6xl md:text-8xl font-black mb-4 bg-linear-to-br from-clr4 to-[#2a5299] bg-clip-text text-transparent">
-                    {stat.value}{stat.suffix}
+                    {stat.value}
+                    {stat.suffix}
                   </div>
                   <div className="text-sm md:text-base uppercase tracking-widest text-gray-400 group-hover:text-white transition-colors duration-300">
                     {stat.label}
@@ -173,12 +186,14 @@ function EspacoCultural() {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-4xl md:text-6xl font-black mb-8">
-                Um território vivo, comunitário e <span className="text-clr4">acessível</span>
+                Um território vivo, comunitário e{" "}
+                <span className="text-clr4">acessível</span>
               </h2>
               <p className="text-xl text-gray-400 leading-relaxed font-light">
-                O CBARTES é um polo de criação e produção cultural, um espaço onde 
-                todas as idades criam, aprendem e se expressam através das artes. 
-                Desde 2022, consolidamos ações que fortalecem a cultura em Diamantina.
+                O CBARTES é um polo de criação e produção cultural, um espaço
+                onde todas as idades criam, aprendem e se expressam através das
+                artes. Desde 2022, consolidamos ações que fortalecem a cultura
+                em Diamantina.
               </p>
             </motion.div>
           </div>
@@ -209,30 +224,29 @@ function EspacoCultural() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.8, delay: index * 0.05 }}
-           
                   className="group relative"
                 >
                   <Link href={section.link}>
                     <div className="relative overflow-hidden bg-zinc-800 rounded-sm h-full p-8 border border-zinc-700 hover:border-clr4 transition-all duration-500">
-                      <div 
+                      <div
                         className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
                         style={{
-                          background: `radial-gradient(circle at 50% 50%, ${section.color}, transparent 70%)`
+                          background: `radial-gradient(circle at 50% 50%, bg-clr4, transparent 70%)`,
                         }}
                       />
 
                       <div className="relative z-10">
                         <div className="flex items-start justify-between mb-4">
-                          <h3 className="text-3xl font-black uppercase tracking-tight text-white group-hover:text-clr4 transition-colors duration-300">
+                          <h3 className="text-3xl font-black uppercase  text-white group-hover:text-clr4 transition-colors duration-300">
                             {section.title}
                           </h3>
                           {section.count && (
-                            <div className="text-5xl font-bold opacity-20" style={{ color: section.color }}>
+                            <div className="text-5xl font-bold opacity-60 text-clr4">
                               {section.count}
                             </div>
                           )}
                         </div>
-                        
+
                         <div className="h-px w-16 bg-clr4 mb-6 group-hover:w-full transition-all duration-500" />
 
                         {section.description && (
@@ -243,11 +257,11 @@ function EspacoCultural() {
 
                         <ul className="space-y-3 mb-6">
                           {section.items.slice(0, 3).map((item, i) => (
-                            <li key={i} className="flex items-start text-sm text-gray-300">
-                              <span 
-                                className="w-1.5 h-1.5 rounded-full mt-2 mr-3 shrink-0"
-                                style={{ backgroundColor: section.color }}
-                              />
+                            <li
+                              key={i}
+                              className="flex items-start text-sm text-gray-300"
+                            >
+                              <span className="w-1.5 h-1.5 rounded-full mt-2 mr-3 shrink-0 bg-clr4" />
                               <span>{item}</span>
                             </li>
                           ))}
@@ -260,7 +274,9 @@ function EspacoCultural() {
 
                         <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-gray-400 group-hover:text-clr4 transition-colors duration-300">
                           <span>Ver mais</span>
-                          <span className="transform group-hover:translate-x-2 transition-transform duration-300">→</span>
+                          <span className="transform group-hover:translate-x-2 transition-transform duration-300">
+                            →
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -271,109 +287,267 @@ function EspacoCultural() {
           </div>
         </section>
 
-        {/* Impacto Cultural */}
+        {/* Impacto Cultural e Econômico */}
         <section className="py-32 bg-zinc-900">
-          <div className="max-w-6xl mx-auto px-8 text-center">
-            <motion.h3
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+          <div className="max-w-7xl mx-auto px-8">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-5xl md:text-6xl font-black mb-16"
+              className="mb-16 text-center"
             >
-              Impacto <span className="text-clr4">Cultural</span>
-            </motion.h3>
-            
-            <div className="grid md:grid-cols-4 gap-8 mb-12">
+              <h2 className="text-6xl md:text-7xl font-black mb-6">
+                Impacto Cultural e <span className="text-clr4">Econômico</span>
+              </h2>
+              <div className="w-32 h-1 bg-linear-to-r from-clr4 to-transparent mx-auto" />
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
-                { value: "16", label: "Espetáculos", color: "#F1443E" },
-                { value: "40", label: "Apresentações", color: "#649D3F" },
-                { value: "500+", label: "Artistas Envolvidos", color: "#3E6AF3" },
-                { value: "3", label: "Anos de História", color: "#F5E764" },
-              ].map((stat, index) => (
+                {
+                  numero: "16",
+                  label: "Espetáculos",
+                  descricao: "Produzidos entre 2022 e 2025",
+         
+                },
+                {
+                  numero: "40",
+                  label: "Apresentações",
+                  sufixo: "+",
+                  descricao: "Públicas em diversos espaços",
+         
+                },
+                {
+                  numero: "500",
+                  label: "Artistas",
+                  sufixo: "+",
+                  descricao: "Envolvidos em nossas ações",
+              
+                },
+                {
+                  numero: "3.5",
+                  label: "Anos",
+                  descricao: "De atuação continuada",
+    
+                },
+              ].map((item, index) => (
                 <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
+                  key={item.label}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="text-center group"
                 >
-                  <div className="text-6xl font-black mb-2" style={{ color: stat.color }}>
-                    {stat.value}
+                  <div
+                    className="text-7xl md:text-8xl font-black mb-4 bg-clip-text text-transparent bg-clr4/80"
+    
+                  >
+                    {item.numero}
+                    {item.sufixo}
                   </div>
-                  <p className="text-sm uppercase tracking-wider text-gray-400">
-                    {stat.label}
-                  </p>
+                  <h3 className="text-xl font-bold uppercase tracking-wider mb-2 text-white">
+                    {item.label}
+                  </h3>
+                  <p className="text-sm text-gray-400">{item.descricao}</p>
                 </motion.div>
               ))}
             </div>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed font-light"
+              className="mt-16 max-w-4xl mx-auto text-center"
             >
-              Único coletivo/escola de Diamantina com essa produção continuada, 
-              comprometido com a expansão, fruição e fortalecimento do mercado cultural 
-              das artes cênicas na região.
-            </motion.p>
+              <p className="text-lg text-gray-300 leading-relaxed">
+                O CBARTES gera impacto direto na economia criativa local,
+                profissionalizando artistas, promovendo circulação cultural e
+                fortalecendo a cadeia produtiva das artes em Diamantina e região.
+              </p>
+            </motion.div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-32 bg-linear-to-b from-black to-zinc-900 relative overflow-hidden">
-          <motion.div
-            className="absolute inset-0"
-            style={{
-              background: `radial-gradient(circle at 50% 50%, #3E6AF320, transparent 70%)`
-            }}
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.6, 0.3],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
+        {/* Apoios e Parcerias */}
+        <section className="py-32 bg-black">
+          <div className="max-w-7xl mx-auto px-8">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="mb-12 text-center"
+            >
+              <h2 className="text-6xl md:text-7xl font-black mb-6">
+                Apoios e <span className="text-clr4">Parcerias</span>
+              </h2>
+              <div className="w-32 h-1 bg-linear-to-r from-clr4 to-transparent mx-auto" />
+            </motion.div>
 
-          <div className="max-w-4xl mx-auto px-8 text-center relative z-10">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center text-gray-400 mb-12 max-w-3xl mx-auto"
+            >
+              Nosso trabalho é viabilizado por uma rede de apoiadores,
+              instituições e políticas públicas que acreditam no poder
+              transformador da cultura.
+            </motion.p>
+
+            <SelosLoop items={[1, 2, 3]} />
+          </div>
+        </section>
+
+        {/* Clipping */}
+        <section className="py-32 bg-zinc-900">
+          <div className="max-w-7xl mx-auto px-8">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="mb-16 text-center"
+            >
+              <h2 className="text-6xl md:text-7xl font-black mb-6">
+                <span className="text-clr4">Clipping</span>
+              </h2>
+              <div className="w-32 h-1 bg-linear-to-r from-clr4 to-transparent mx-auto" />
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  titulo: "CBARTES apresenta espetáculo no Teatro Santa Izabel",
+                  veiculo: "Jornal Voz da Serra",
+                  data: "Dezembro 2024",
+                  link: "#",
+                },
+                {
+                  titulo: "Galeria do CBARTES recebe exposição de arte contemporânea",
+                  veiculo: "Portal Diamantina",
+                  data: "Novembro 2024",
+                  link: "#",
+                },
+                {
+                  titulo: "Projeto social do CBARTES beneficia 50+ jovens",
+                  veiculo: "Rádio Teófilo Otoni",
+                  data: "Outubro 2024",
+                  link: "#",
+                },
+                {
+                  titulo: "Ponto de Cultura fortalece cena artística em Diamantina",
+                  veiculo: "Jornal Hoje em Dia",
+                  data: "Setembro 2024",
+                  link: "#",
+                },
+                {
+                  titulo: "CBARTES é destaque em festival de dança",
+                  veiculo: "Portal G1 Minas",
+                  data: "Agosto 2024",
+                  link: "#",
+                },
+                {
+                  titulo: "Escola de artes oferece bolsas gratuitas",
+                  veiculo: "TV Integração",
+                  data: "Julho 2024",
+                  link: "#",
+                },
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="group"
+                >
+                  <a
+                    href={item.link}
+                    className="block bg-zinc-800 border border-zinc-700 hover:border-clr4 rounded-sm p-6 h-full transition-all duration-300"
+                  >
+                    <div className="mb-4">
+                      <div className="text-xs uppercase tracking-widest text-gray-500 mb-2">
+                        {item.veiculo} · {item.data}
+                      </div>
+                      <h3 className="text-xl font-bold text-white group-hover:text-clr4 transition-colors duration-300 line-clamp-3">
+                        {item.titulo}
+                      </h3>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-gray-400 group-hover:text-clr4 transition-colors duration-300">
+                      <span>Ler matéria</span>
+                      <span className="transform group-hover:translate-x-2 transition-transform duration-300">
+                        →
+                      </span>
+                    </div>
+                  </a>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="mt-12 text-center"
+            >
+              <Link
+                href="/espaco-cultural/midia"
+                className="inline-block px-8 py-4 bg-transparent border-2 border-clr4 text-clr4 font-bold uppercase tracking-wider rounded-full hover:bg-clr4 hover:text-white transition-all duration-300"
+              >
+                Ver todo o clipping
+              </Link>
+            </motion.div>
+          </div>
+        </section>
+
+        <section className="relative py-32 overflow-hidden">
+          <div className="absolute inset-0">
+            <Image
+              src={ctaImage}
+              fill
+              alt="Inscreva-se"
+              style={{ objectFit: "cover" }}
+              className="brightness-50"
+            />
+            <div className="absolute inset-0 bg-black/60" />
+          </div>
+          <div className="max-w-5xl mx-auto px-8 text-center relative z-10">
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="text-5xl md:text-7xl font-black mb-8"
             >
-              Faça parte dessa transformação
+              Seja presença ativa nessa trajetória cultural
             </motion.h2>
-            
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-xl md:text-2xl text-gray-400 mb-12 leading-relaxed"
+              className="text-xl md:text-2xl text-gray-200 mb-12 leading-relaxed"
             >
-              Acompanhe nossos eventos, participe das oficinas e
+              Acompanhe nossas atividades, envie propostas e aproprie-se deste
+              espaço cultural,
               <br />
-              seja parte do movimento cultural de Diamantina
+              como lugar de encontro, criação, troca e pertencimento.
             </motion.p>
-
-            <motion.button
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-    
-              className="px-12 py-5 bg-clr4 text-white text-lg font-bold uppercase tracking-widest rounded-full hover:bg-[#2a5299] transition-colors duration-300 shadow-2xl shadow-clr4/50"
-            >
-              Entre em contato
-            </motion.button>
+            <a href="https://wa.me/553897421313">
+              <motion.button
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-12 py-5 bg-clr4 text-white text-lg font-bold uppercase tracking-widest rounded-full hover:bg-[#2a5299] transition-colors duration-300 shadow-2xl shadow-clr4/50"
+              >
+                Fale Conosco
+              </motion.button>
+            </a>
           </div>
         </section>
+        <Footer color="#3e6af3" />
       </main>
     </>
   );

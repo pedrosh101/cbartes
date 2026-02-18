@@ -13,7 +13,12 @@
   src: url("../public/fonts/futura.otf");
 }
 
-
+html,
+body,
+html *,
+body * {
+  cursor: none !important;
+}
 
 /*clr1 vermelho - companhia*/
 /*clr2 amarelo - associacao*/
@@ -27,10 +32,10 @@
   --font-mono: var(--font-geist-mono);
   --font-futura: "futura", sans-serif;
   --font-mat: "mat", sans-serif;
-  --color-clr1: #F1443E;
-  --color-clr2: #F5E764;
-  --color-clr3: #649D3F;
-  --color-clr4: #3E6AF3;
+  --color-clr1: #f1443e;
+  --color-clr2: #f5e764;
+  --color-clr3: #649d3f;
+  --color-clr4: #3e6af3;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -136,6 +141,55 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+
+.swiper-main .swiper-button-next,
+.swiper-main .swiper-button-prev {
+  background: transparent !important;
+  color: white !important;
+}
+.swiper-main .swiper-button-next:hover,
+.swiper-main .swiper-button-prev:hover {
+  transform: scale(1.1) !important;
+}
+.swiper-main .swiper-button-next::after,
+.swiper-main .swiper-button-prev::after {
+  font-size: 20px !important;
+  font-weight: bold !important;
+}
+.swiper-main .swiper-pagination {
+  bottom: 140px !important;
+}
+.swiper-main .swiper-pagination-fraction {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+  padding: 8px 16px !important;
+  border-radius: 20px !important;
+  width: auto !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: white !important;
+}
+.thumbs-swiper .swiper-slide-thumb-active > div {
+  opacity: 1 !important;
+  outline: 2px solid white !important;
+  outline-offset: 2px !important;
+}
+@media (max-width: 768px) {
+  .swiper-main .swiper-button-next,
+  .swiper-main .swiper-button-prev {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .swiper-main .swiper-button-next::after,
+  .swiper-main .swiper-button-prev::after {
+    font-size: 16px !important;
+  }
+  .swiper-main .swiper-pagination {
+    bottom: 20px !important;
+  }
 }
 
 @layer base {
