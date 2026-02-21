@@ -5,8 +5,11 @@ import { useScroll, useTransform, motion } from "framer-motion";
 import Lenis from "lenis";
 import Image from "next/image";
 import NavbarInside from "@/components/navbarInside";
-import image from "@/public/images/5.jpg";
 import CustomCursor from "@/components/cursor";
+import Footer from "@/components/footer";
+import { SelosLoop } from "@/components/selosloop";
+import image from "@/public/images/5.jpg";
+import ctaImage from "@/public/images/pulso.webp";
 
 const nucleos = [
   {
@@ -14,22 +17,22 @@ const nucleos = [
     nome: "Dança-Teatro",
     descricao: "Investigação das fronteiras entre movimento e dramaturgia",
     areas: ["Improvisação", "Composição Coreográfica", "Performance"],
-    icon: "○"
+    icon: "○",
   },
   {
     id: 2,
     nome: "Dança-Arquitetura",
     descricao: "Relação entre corpo, espaço e estruturas urbanas",
     areas: ["Site-specific", "Intervenção Urbana", "Vídeo-dança"],
-    icon: "△"
+    icon: "△",
   },
   {
     id: 3,
     nome: "Processos Criativos",
     descricao: "Metodologias autorais de criação em artes cênicas",
     areas: ["Pesquisa Corporal", "Dramaturgia do Corpo", "Experimentação"],
-    icon: "□"
-  }
+    icon: "□",
+  },
 ];
 
 const espetaculos = [
@@ -37,32 +40,32 @@ const espetaculos = [
     titulo: "Espaço Sagrado",
     ano: "2023",
     tipo: "Dança Contemporânea",
-    concepcao: "Ditto Leite"
+    concepcao: "Ditto Leite",
   },
   {
     titulo: "Subvercirco",
     ano: "2024",
     tipo: "Dança-Circo",
-    concepcao: "Ditto Leite"
+    concepcao: "Ditto Leite",
   },
   {
     titulo: "Pulso Invisível",
     ano: "2024",
     tipo: "Dança Contemporânea",
-    concepcao: "Ditto Leite"
+    concepcao: "Ditto Leite",
   },
   {
     titulo: "Brincantes",
     ano: "2025",
     tipo: "Documentário/Performance",
-    concepcao: "Ditto Leite"
+    concepcao: "Ditto Leite",
   },
   {
     titulo: "Circunsdanças da Vida",
     ano: "2025",
     tipo: "Dança-Teatro",
-    concepcao: "Ditto Leite"
-  }
+    concepcao: "Ditto Leite",
+  },
 ];
 
 const timeline = [
@@ -70,20 +73,20 @@ const timeline = [
   { ano: "2023", evento: "Primeira produção autoral - Espaço Sagrado" },
   { ano: "2024", evento: "Consolidação do núcleo de pesquisa" },
   { ano: "2025", evento: "Expansão nacional e documentário" },
-  { ano: "2026", evento: "Projeto PLUMAS em desenvolvimento" }
+  { ano: "2026", evento: "Projeto PLUMAS em desenvolvimento" },
 ];
 
 function Companhia() {
   const container = useRef<HTMLDivElement>(null);
-  const cursorVariant = "default";
 
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0vh", "30vh"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0vh", "50vh"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -102,56 +105,77 @@ function Companhia() {
 
   return (
     <>
-      <NavbarInside color="#F1443E" />
       <CustomCursor />
+      <NavbarInside color="#F1443E" />
 
-      <main className="font-futura bg-white text-black overflow-hidden">
-        {/* Hero Section - Minimalista */}
+      <main className="font-futura bg-black text-white overflow-hidden cursor-none">
+        {/* Hero Section */}
         <div
           ref={container}
-          className="relative flex items-center justify-center h-screen overflow-hidden bg-white"
+          className="relative flex items-center justify-center h-screen overflow-hidden"
         >
-          <motion.div 
-            style={{ opacity }}
-            className="absolute inset-0 opacity-5"
-          >
+          <motion.div className="absolute inset-0" style={{ scale }}>
             <motion.div style={{ y }} className="relative w-full h-full">
+              <div className="absolute inset-0 bg-clr1 opacity-30 mix-blend-multiply z-10" />
               <Image
                 src={image}
                 fill
                 alt="Confraria Tijucana de Artes"
                 priority
                 style={{ objectFit: "cover" }}
-                className="grayscale"
+                className="grayscale-30"
               />
             </motion.div>
           </motion.div>
 
-          <motion.div 
-            className="relative z-20 text-center px-8 max-w-5xl mx-auto"
+          <motion.div
+            style={{ opacity }}
+            className="relative z-20 text-center px-8 max-w-7xl mx-auto"
           >
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
+              className="overflow-hidden"
             >
-              <p className="text-xs uppercase tracking-[0.3em] mb-8 text-gray-200">
-                Núcleo de criação artística
-              </p>
-              
-              <h1 className="text-[8vw] md:text-[6vw] font-light leading-[0.9] tracking-tighter mb-8 text-white/90">
+              <h1 className="text-[7vw] font-black leading-none tracking-wider my-4">
                 CONFRARIA
                 <br />
-                <span className="font-black">TIJUCANA</span>
+                TIJUCANA
                 <br />
-                <span className="text-clr1 font-black">DE ARTES</span>
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-clr1 to-[#a8302a]">
+                  DE ARTES
+                </span>
               </h1>
+            </motion.div>
 
-              <div className="w-16 h-px bg-black mx-auto mb-8" />
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-xl md:text-3xl mt-8 font-light tracking-wide text-gray-300"
+            >
+              Corpo, arte e território em movimento
+            </motion.p>
 
-              <p className="text-lg md:text-xl font-light tracking-wide text-gray-200 max-w-2xl mx-auto">
-                Corpo, arte e território em movimento
-              </p>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.9 }}
+              className="mt-12 gap-4 justify-center 2xl:flex hidden"
+            >
+              {["Dança-Teatro", "Dança-Arquitetura", "Processos Criativos"].map(
+                (tag) => (
+                  <div
+                    key={tag}
+                    className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20"
+                  >
+                    <span className="text-sm uppercase tracking-widest">
+                      {tag}
+                    </span>
+                  </div>
+                )
+              )}
             </motion.div>
           </motion.div>
 
@@ -159,70 +183,105 @@ function Companhia() {
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ repeat: Infinity, duration: 1.5 }}
-              className="w-px h-16 bg-black/20"
-            />
+              className="text-white/60 text-sm uppercase tracking-widest flex flex-col items-center gap-2"
+            >
+              <span>Explore</span>
+              <div className="w-px h-12 bg-linear-to-b from-white/60 to-transparent" />
+            </motion.div>
           </div>
         </div>
 
-        {/* Manifesto Section */}
-        <section className="py-32 bg-white">
-          <div className="max-w-4xl mx-auto px-8">
+        {/* Selos + Stats */}
+        <section className="relative bg-linear-to-b from-black to-zinc-900">
+          <SelosLoop items={[1, 2, 3]} />
+          <div className="max-w-7xl mx-auto px-8 py-24">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16">
+              {[
+                { value: 5, label: "Espetáculos", suffix: "" },
+                { value: 3, label: "Núcleos de Pesquisa", suffix: "" },
+                { value: 5, label: "Anos", suffix: "" },
+                { value: 1, label: "Documentário", suffix: "" },
+              ].map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="text-center group"
+                >
+                  <div className="text-6xl md:text-8xl font-black mb-4 bg-linear-to-br from-clr1 to-[#a8302a] bg-clip-text text-transparent">
+                    {stat.value}
+                    {stat.suffix}
+                  </div>
+                  <div className="text-sm md:text-base uppercase tracking-widest text-gray-400 group-hover:text-white transition-colors duration-300">
+                    {stat.label}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Manifesto */}
+        <section className="py-32 bg-zinc-900">
+          <div className="max-w-4xl mx-auto px-8 text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-5xl md:text-7xl font-light mb-12 leading-tight">
-                Uma companhia de
-                <br />
-                <span className="font-black">criação autoral</span>
+              <h2 className="text-4xl md:text-6xl font-black mb-8">
+                Uma companhia de{" "}
+                <span className="text-clr1">criação autoral</span>
               </h2>
-              
-              <div className="space-y-6 text-lg md:text-xl leading-relaxed text-gray-700 font-light">
-                <p>
-                  A Confraria Tijucana de Artes é um núcleo de pesquisa e criação em artes 
-                  cênicas, fundado e dirigido por Ditto Leite, que investiga as relações entre 
-                  corpo, espaço e narrativa.
-                </p>
-                
-                <p>
-                  Nosso trabalho se baseia em processos colaborativos de criação, onde dança, 
-                  teatro e artes visuais dialogam na construção de espetáculos autorais que 
-                  refletem sobre a contemporaneidade.
-                </p>
-
-                <p className="font-normal text-black">
-                  Desde 2023, já produzimos 5 espetáculos autorais, consolidando uma linguagem 
-                  própria que transita entre o experimental e o popular.
-                </p>
-              </div>
+              <p className="text-xl text-gray-400 leading-relaxed font-light">
+                A Confraria Tijucana de Artes é um núcleo de pesquisa e criação
+                em artes cênicas, fundado e dirigido por Ditto Leite, que
+                investiga as relações entre corpo, espaço e narrativa. Nosso
+                trabalho se baseia em processos colaborativos de criação, onde
+                dança, teatro e artes visuais dialogam na construção de
+                espetáculos autorais que refletem sobre a contemporaneidade.
+              </p>
             </motion.div>
           </div>
         </section>
 
         {/* Fundador */}
-        <section className="py-32 bg-zinc-50">
+        <section className="py-32 bg-black">
           <div className="max-w-6xl mx-auto px-8">
-            <div className="grid md:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="mb-20"
+            >
+              <h2 className="text-8xl font-black mb-6 leading-none">
+                Diretor
+                <br />
+                <span className="text-clr1">Artístico</span>
+              </h2>
+              <div className="w-32 h-1 bg-linear-to-r from-clr1 to-transparent" />
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 gap-16 items-start">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
               >
-                <p className="text-xs uppercase tracking-[0.3em] mb-4 text-gray-500">
-                  Diretor Artístico
-                </p>
                 <h3 className="text-6xl md:text-7xl font-black mb-6 leading-none">
                   Ditto
                   <br />
                   Leite
                 </h3>
-                <div className="w-16 h-px bg-clr1 mb-8" />
-                <p className="text-lg leading-relaxed text-gray-700 font-light">
-                  Multi-artista com vasta experiência em dança contemporânea, artes visuais 
-                  e direção artística. Fundador da Escola CBARTES e da Confraria Tijucana de Artes.
+                <div className="w-16 h-1 bg-clr1 mb-8" />
+                <p className="text-lg leading-relaxed text-gray-300 font-light">
+                  Multi-artista com vasta experiência em dança contemporânea,
+                  artes visuais e direção artística. Fundador da Escola CBARTES
+                  e da Confraria Tijucana de Artes.
                 </p>
               </motion.div>
 
@@ -231,21 +290,21 @@ function Companhia() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="space-y-4"
+                className="space-y-6"
               >
-                <div className="border-l-2 border-gray-200 pl-6 py-2">
+                <div className="border-l-2 border-zinc-700 pl-6 py-2">
                   <p className="text-sm uppercase tracking-wider text-gray-500 mb-1">
                     Formação
                   </p>
-                  <p className="font-light text-gray-800">
+                  <p className="font-light text-gray-300">
                     Dança Contemporânea, Artes Visuais, Performance
                   </p>
                 </div>
-                <div className="border-l-2 border-gray-200 pl-6 py-2">
+                <div className="border-l-2 border-zinc-700 pl-6 py-2">
                   <p className="text-sm uppercase tracking-wider text-gray-500 mb-1">
                     Atuação
                   </p>
-                  <p className="font-light text-gray-800">
+                  <p className="font-light text-gray-300">
                     Diretor, Bailarino, Artista Visual, Professor
                   </p>
                 </div>
@@ -253,7 +312,7 @@ function Companhia() {
                   <p className="text-sm uppercase tracking-wider text-gray-500 mb-1">
                     Criações
                   </p>
-                  <p className="font-semibold text-black">
+                  <p className="font-semibold text-clr1">
                     5 espetáculos autorais desde 2023
                   </p>
                 </div>
@@ -263,53 +322,67 @@ function Companhia() {
         </section>
 
         {/* Núcleos de Pesquisa */}
-        <section className="py-32 bg-white">
+        <section className="py-32 bg-zinc-900">
           <div className="max-w-7xl mx-auto px-8">
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="mb-20 text-center"
+              className="mb-20"
             >
-              <p className="text-xs uppercase tracking-[0.3em] mb-4 text-gray-500">
-                Linhas de investigação
-              </p>
-              <h2 className="text-5xl md:text-7xl font-light">
-                Núcleos de <span className="font-black">Pesquisa</span>
+              <h2 className="text-8xl font-black mb-6 leading-none">
+                Núcleos de
+                <br />
+                <span className="text-clr1">Pesquisa</span>
               </h2>
+              <div className="w-32 h-1 bg-linear-to-r from-clr1 to-transparent" />
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-12">
+            <div className="grid md:grid-cols-3 gap-8">
               {nucleos.map((nucleo, index) => (
                 <motion.div
                   key={nucleo.id}
-                  initial={{ opacity: 0, y: 40 }}
+                  initial={{ opacity: 0, y: 60 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="group"
+                  transition={{ duration: 0.8, delay: index * 0.15 }}
+                  className="group relative"
                 >
-                  <div className="text-8xl font-light text-gray-200 group-hover:text-clr1 transition-colors duration-500 mb-6">
-                    {nucleo.icon}
-                  </div>
-                  
-                  <h3 className="text-2xl font-black mb-3 uppercase tracking-tight">
-                    {nucleo.nome}
-                  </h3>
-                  
-                  <p className="text-gray-600 font-light mb-6 leading-relaxed">
-                    {nucleo.descricao}
-                  </p>
+                  <div className="relative overflow-hidden bg-zinc-800 rounded-sm h-full p-8 border border-zinc-700 hover:border-clr1 transition-all duration-500">
+                    <div
+                      className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
+                      style={{
+                        background: `radial-gradient(circle at 50% 50%, #F1443E, transparent 70%)`,
+                      }}
+                    />
 
-                  <div className="space-y-2">
-                    {nucleo.areas.map((area, i) => (
-                      <div key={i} className="flex items-center gap-3">
-                        <div className="w-1 h-1 bg-black rounded-full" />
-                        <span className="text-sm uppercase tracking-wider text-gray-500">
-                          {area}
-                        </span>
+                    <div className="relative z-10">
+                      <div className="text-7xl font-light text-zinc-700 group-hover:text-clr1 transition-colors duration-500 mb-6">
+                        {nucleo.icon}
                       </div>
-                    ))}
+
+                      <h3 className="text-3xl font-black uppercase tracking-tight mb-3 group-hover:text-clr1 transition-colors duration-300">
+                        {nucleo.nome}
+                      </h3>
+
+                      <div className="h-px w-16 bg-clr1 mb-6 group-hover:w-full transition-all duration-500" />
+
+                      <p className="text-base text-gray-400 font-light mb-6 leading-relaxed">
+                        {nucleo.descricao}
+                      </p>
+
+                      <div className="space-y-3">
+                        {nucleo.areas.map((area, i) => (
+                          <div
+                            key={i}
+                            className="flex items-center gap-2 text-sm text-gray-300"
+                          >
+                            <div className="w-1 h-1 rounded-full bg-clr1" />
+                            {area}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
               ))}
@@ -318,7 +391,7 @@ function Companhia() {
         </section>
 
         {/* Espetáculos */}
-        <section className="py-32 bg-zinc-50">
+        <section className="py-32 bg-black">
           <div className="max-w-6xl mx-auto px-8">
             <motion.div
               initial={{ opacity: 0 }}
@@ -326,12 +399,10 @@ function Companhia() {
               viewport={{ once: true }}
               className="mb-20"
             >
-              <p className="text-xs uppercase tracking-[0.3em] mb-4 text-gray-500">
-                Produções autorais
-              </p>
-              <h2 className="text-5xl md:text-7xl font-light mb-4">
-                <span className="font-black">Espetáculos</span>
+              <h2 className="text-8xl font-black mb-6 leading-none">
+                <span className="text-clr1">Espetáculos</span>
               </h2>
+              <div className="w-32 h-1 bg-linear-to-r from-clr1 to-transparent" />
             </motion.div>
 
             <div className="space-y-1">
@@ -342,14 +413,14 @@ function Companhia() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.05 }}
-                  className="group border-b border-gray-200 hover:border-clr1 transition-colors duration-300"
+                  className="group border-b border-zinc-800 hover:border-clr1 transition-colors duration-300"
                 >
                   <div className="py-8 grid grid-cols-12 gap-4 items-center">
-                    <div className="col-span-1 text-sm font-light text-gray-400">
-                      {String(index + 1).padStart(2, '0')}
+                    <div className="col-span-1 text-sm font-light text-gray-600">
+                      {String(index + 1).padStart(2, "0")}
                     </div>
                     <div className="col-span-6 md:col-span-5">
-                      <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight group-hover:text-clr1 transition-colors">
+                      <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white group-hover:text-clr1 transition-colors">
                         {esp.titulo}
                       </h3>
                     </div>
@@ -357,7 +428,7 @@ function Companhia() {
                       {esp.tipo}
                     </div>
                     <div className="col-span-12 md:col-span-3 text-right">
-                      <span className="inline-block px-4 py-2 bg-white text-xs uppercase tracking-widest font-semibold">
+                      <span className="inline-block px-4 py-2 bg-zinc-900 border border-zinc-800 text-xs uppercase tracking-widest font-semibold text-gray-400">
                         {esp.ano}
                       </span>
                     </div>
@@ -369,7 +440,7 @@ function Companhia() {
         </section>
 
         {/* Timeline */}
-        <section className="py-32 bg-white">
+        <section className="py-32 bg-zinc-900">
           <div className="max-w-4xl mx-auto px-8">
             <motion.div
               initial={{ opacity: 0 }}
@@ -377,12 +448,13 @@ function Companhia() {
               viewport={{ once: true }}
               className="mb-20 text-center"
             >
-              <h2 className="text-5xl md:text-6xl font-light">
-                Nossa <span className="font-black">Trajetória</span>
+              <h2 className="text-6xl md:text-7xl font-black mb-6">
+                Nossa <span className="text-clr1">Trajetória</span>
               </h2>
+              <div className="w-32 h-1 bg-linear-to-r from-clr1 to-transparent mx-auto" />
             </motion.div>
 
-            <div className="space-y-16">
+            <div className="space-y-12">
               {timeline.map((item, index) => (
                 <motion.div
                   key={index}
@@ -390,13 +462,13 @@ function Companhia() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex gap-12 items-start"
+                  className="flex gap-8 items-start border-l-2 border-zinc-800 pl-8 py-2"
                 >
-                  <div className="text-6xl font-black text-gray-100 w-32 shrink-0">
+                  <div className="text-5xl font-black text-clr1 w-24 shrink-0">
                     {item.ano}
                   </div>
-                  <div className="flex-1 pt-4">
-                    <p className="text-xl font-light text-gray-700 leading-relaxed">
+                  <div className="flex-1 pt-3">
+                    <p className="text-lg text-gray-300 leading-relaxed">
                       {item.evento}
                     </p>
                   </div>
@@ -407,7 +479,7 @@ function Companhia() {
         </section>
 
         {/* Projeto PLUMAS */}
-        <section className="py-32 bg-linear-to-b from-zinc-50 to-white">
+        <section className="py-32 bg-black">
           <div className="max-w-5xl mx-auto px-8 text-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -418,53 +490,75 @@ function Companhia() {
               <p className="text-xs uppercase tracking-[0.3em] mb-6 text-gray-500">
                 Próximo projeto
               </p>
-              
-              <h2 className="text-7xl md:text-8xl font-black mb-8 leading-none">
+
+              <h2 className="text-7xl md:text-9xl font-black mb-8 leading-none text-clr1">
                 PLUMAS
               </h2>
-              
-              <div className="w-24 h-px bg-clr1 mx-auto mb-8" />
-              
-              <p className="text-xl md:text-2xl font-light text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-                Um novo espetáculo em desenvolvimento que promete expandir os limites 
-                da dança contemporânea em Diamantina
+
+              <div className="w-24 h-1 bg-clr1 mx-auto mb-8" />
+
+              <p className="text-xl md:text-2xl font-light text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed">
+                Um novo espetáculo em desenvolvimento que promete expandir os
+                limites da dança contemporânea em Diamantina
               </p>
 
-              <p className="text-sm uppercase tracking-widest text-gray-400">
+              <p className="text-sm uppercase tracking-widest text-gray-600">
                 Em breve
               </p>
             </motion.div>
           </div>
         </section>
 
-        {/* CTA Final */}
-        <section className="py-32 bg-black text-white">
-          <div className="max-w-4xl mx-auto px-8 text-center">
-            <motion.div
+        {/* CTA */}
+        <section className="relative py-32 overflow-hidden">
+          <div className="absolute inset-0">
+            <Image
+              src={ctaImage}
+              fill
+              alt="Faça parte"
+              style={{ objectFit: "cover" }}
+              className="brightness-50"
+            />
+            <div className="absolute inset-0 bg-black/60" />
+          </div>
+
+          <div className="max-w-4xl mx-auto px-8 text-center relative z-10">
+            <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              className="text-5xl md:text-7xl font-black mb-8"
             >
-              <h2 className="text-5xl md:text-6xl font-light mb-6">
-                Faça parte da
-                <br />
-                <span className="font-black">nossa história</span>
-              </h2>
-              
-              <div className="w-16 h-px bg-white mx-auto my-12" />
-              
-              <p className="text-lg font-light text-gray-400 mb-12">
-                Acompanhe nossos processos, participe de audições e
-                <br />
-                seja parte do futuro das artes cênicas
-              </p>
+              Faça parte da nossa história
+            </motion.h2>
 
-              <button className="px-12 py-4 bg-white text-black text-sm uppercase tracking-widest font-bold hover:bg-gray-100 transition-colors duration-300">
-                Entre em contato
-              </button>
-            </motion.div>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-xl md:text-2xl text-gray-200 mb-12 leading-relaxed"
+            >
+              Acompanhe nossos processos, participe de audições e
+              <br />
+              seja parte do futuro das artes cênicas
+            </motion.p>
+
+            <motion.button
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-12 py-5 bg-clr1 text-white text-lg font-bold uppercase tracking-widest rounded-full hover:bg-[#a8302a] transition-colors duration-300 shadow-2xl shadow-clr1/50"
+            >
+              Entre em contato
+            </motion.button>
           </div>
         </section>
+
+        <Footer color="#F1443E" />
       </main>
     </>
   );

@@ -439,8 +439,30 @@ function Escola() {
           </div>
         </section>
 
+                <section className="py-32 bg-zinc-900">
+          <div className="max-w-4xl mx-auto px-8 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-4xl md:text-6xl font-black mb-8">
+                Um território vivo, comunitário e{" "}
+                <span className="text-clr3">acessível</span>
+              </h2>
+              <p className="text-xl text-gray-400 leading-relaxed font-light">
+                O CBARTES é um polo de criação e produção cultural, um espaço
+                onde todas as idades criam, aprendem e se expressam através das
+                artes. Desde 2022, consolidamos ações que fortalecem a cultura
+                em Diamantina.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
         {/* ── Cursos Regulares ── */}
-        <section className="py-32 relative bg-zinc-900">
+        <section className="py-32 relative bg-black">
           <div className="max-w-7xl mx-auto px-8">
             <motion.div
               initial={{ opacity: 0 }}
@@ -517,7 +539,7 @@ function Escola() {
         </section>
 
         {/* ── Cursos Livres ── */}
-        <section className="py-32 bg-black relative overflow-hidden">
+        <section className="py-32 bg-zinc-900 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-8 relative z-10">
             <motion.h2
               initial={{ opacity: 0, x: -50 }}
@@ -552,7 +574,7 @@ function Escola() {
         </section>
 
         {/* ── Oficinas ── */}
-        <section className="py-32 bg-zinc-900">
+        <section className="py-32 bg-black">
           <div className="max-w-7xl mx-auto px-8">
             <motion.div
               initial={{ opacity: 0 }}
@@ -682,7 +704,7 @@ function Escola() {
         </section>
 
         {/* ── Espetáculos e Apresentações ── */}
-        <section className="py-32 bg-black relative">
+        <section className="py-32 bg-zinc-900 relative">
           <div className="max-w-7xl mx-auto px-8">
             <motion.div
               initial={{ opacity: 0 }}
@@ -805,7 +827,7 @@ function Escola() {
         </section>
 
         {/* ── Depoimentos ── */}
-        <section className="py-32 bg-zinc-900 relative overflow-hidden">
+        <section className="py-32 bg-black relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-8">
             <motion.h2
               initial={{ opacity: 0 }}

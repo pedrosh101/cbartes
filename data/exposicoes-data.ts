@@ -10,7 +10,6 @@ export interface Exposicao {
   tecnica: string;
   local: string;
   pasta: string;
-  prefixo: string;
   quantidade: number;
 
 }
@@ -25,8 +24,7 @@ export const exposicoes: Record<string, Exposicao> = {
     sobre: "Marcelo Brant é artista visual e professor sediado em Diamantina. Seu trabalho explora as interseções entre arte contemporânea e cultura local.",
     tecnica: "Técnica mista",
     local: "Galeria CBARTES",
-    pasta: "1 marcelo brant",
-    prefixo: "MB",
+    pasta: "marcelo-brant",
     quantidade: 7,
 
   },
@@ -40,8 +38,7 @@ export const exposicoes: Record<string, Exposicao> = {
     sobre: "Ditto Leite é artista visual, bailarino e diretor artístico do CBARTES. Multi-artista com vasta experiência em dança contemporânea, artes visuais e performance.",
     tecnica: "Pintura e fotografia",
     local: "Galeria CBARTES",
-    pasta: "2 ditto leite",
-    prefixo: "DL",
+    pasta: "ditto-leite",
     quantidade: 10,
 
   },
@@ -55,9 +52,9 @@ export const exposicoes: Record<string, Exposicao> = {
     sobre: "Graciola Rodrigues é artista plástica de Diamantina, conhecida por seu trabalho com retratos e representações da figura feminina.",
     tecnica: "Pintura em acrílico",
     local: "Galeria CBARTES",
-    pasta: "3 graciola rodrigues",
-    prefixo: "GR",
-    quantidade: 8,
+    pasta: "graciola-rodrigues",
+
+    quantidade: 9,
 
   },
 
@@ -70,9 +67,8 @@ export const exposicoes: Record<string, Exposicao> = {
     sobre: "Adriana Reis é artista plástica residente em Diamantina, com trabalhos focados em abstração e experimentação com cores e formas.",
     tecnica: "Técnica mista",
     local: "Galeria CBARTES",
-    pasta: "4 adriana reis",
-    prefixo: "AR",
-    quantidade: 6,
+    pasta: "adriana-reis",
+    quantidade: 3,
 
   },
 
@@ -86,7 +82,6 @@ export const exposicoes: Record<string, Exposicao> = {
     tecnica: "Pintura e instalação",
     local: "Galeria CBARTES",
     pasta: "5 herivelton silva",
-    prefixo: "HS",
     quantidade: 9,
  
   },
@@ -101,7 +96,6 @@ export const exposicoes: Record<string, Exposicao> = {
     tecnica: "Colagem e técnica mista",
     local: "Galeria CBARTES",
     pasta: "6 here fonseca",
-    prefixo: "HF",
     quantidade: 7,
 
   },
@@ -116,7 +110,6 @@ export const exposicoes: Record<string, Exposicao> = {
     tecnica: "Técnica mista",
     local: "Galeria CBARTES",
     pasta: "7 ofelia ricardo",
-    prefixo: "OR",
     quantidade: 12,
 
   },
@@ -130,8 +123,7 @@ export const exposicoes: Record<string, Exposicao> = {
     sobre: "Cristiane Queiroz é fotógrafa de Diamantina. Concepção de Viviane Queiroz. Trabalho focado em retratos e fotografia documental.",
     tecnica: "Fotografia",
     local: "Galeria CBARTES",
-    pasta: "8 cristiane queiroz",
-    prefixo: "CQ",
+    pasta: "cristiane-queiroz",
     quantidade: 15,
 
   },
@@ -145,8 +137,7 @@ export const exposicoes: Record<string, Exposicao> = {
     sobre: "Kuta Ndumbu é artista plástico africano. Seu trabalho integra tradições visuais africanas com questões contemporâneas.",
     tecnica: "Pintura em acrílico",
     local: "Galeria CBARTES",
-    pasta: "9 kuta ndumbu",
-    prefixo: "KN",
+    pasta: "kuta",
     quantidade: 11,
 
   },
@@ -161,7 +152,6 @@ export const exposicoes: Record<string, Exposicao> = {
     tecnica: "Técnica mista",
     local: "Galeria CBARTES",
     pasta: "10 samora delcio",
-    prefixo: "SD",
     quantidade: 8,
 
   },
@@ -176,12 +166,11 @@ export const exposicoes: Record<string, Exposicao> = {
     tecnica: "Pintura em acrílico",
     local: "Galeria CBARTES",
     pasta: "11 luciano ribeiro",
-    prefixo: "LR",
     quantidade: 10,
 
   },
 
-  "coletiva-2024": {
+  "coletiva": {
     artista: "Exposição Coletiva",
     titulo: "Vozes Visuais",
     ano: "2024",
@@ -190,8 +179,7 @@ export const exposicoes: Record<string, Exposicao> = {
     sobre: "Artistas: Raquel Galiciolli, Annalu Quadros, Graciola Rodrigues, Flora Martins, Ceci Gaiad, Ana Ribeiro, Ditto Leite.",
     tecnica: "Pintura, fotografia e técnica mista",
     local: "Galeria CBARTES",
-    pasta: "12 coletiva 2024",
-    prefixo: "COL",
+    pasta: "coletiva",
     quantidade: 20,
 
   },
@@ -206,12 +194,11 @@ export const exposicoes: Record<string, Exposicao> = {
     tecnica: "Técnica mista e instalação",
     local: "Galeria CBARTES",
     pasta: "13 chrystel baue",
-    prefixo: "CB",
     quantidade: 14,
 
   },
 
-  "fotografia-2025": {
+  "fotografica-2025": {
     artista: "Ditto Leite, Claudia Ribeiro e Casal Click",
     titulo: "Olhares Cruzados",
     ano: "2025",
@@ -220,8 +207,7 @@ export const exposicoes: Record<string, Exposicao> = {
     sobre: "Três olhares fotográficos se encontram para revelar diferentes camadas da cidade e seus habitantes.",
     tecnica: "Fotografia",
     local: "Galeria CBARTES",
-    pasta: "14 fotografia 2025",
-    prefixo: "FOTO",
+    pasta: "fotografica-2025",
     quantidade: 18,
 
   }
