@@ -8,7 +8,7 @@ import Link from "next/link";
 import NavbarInside from "@/components/navbarInside";
 import CustomCursor from "@/components/cursor";
 import Footer from "@/components/footer";
-import { getExposicoesLinks } from "@/data/exposicoes-data";
+import { getExposicoesLinks } from "@/data/espaco/exposicoes-data";
 
 const exposicoes = getExposicoesLinks();
 
@@ -134,7 +134,7 @@ function Galeria() {
               <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {exposicoesPorAno[ano].map((exposicao, index) => {
                   // Monta o caminho da imagem: terceira foto da pasta
-                  const imagePath = `/images/galeria/${exposicao.link.split("/").pop()}/3.webp`;
+                  const imagePath = `/images/galeria/${exposicao.link.split("/").pop()}/1.webp`;
 
                   return (
                     <motion.div

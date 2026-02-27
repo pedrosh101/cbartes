@@ -9,7 +9,6 @@ export interface Exposicao {
   sobre: string;
   tecnica: string;
   local: string;
-  pasta: string;
   quantidade: number;
 
 }
@@ -24,7 +23,7 @@ export const exposicoes: Record<string, Exposicao> = {
     sobre: "Marcelo Brant é artista visual e professor sediado em Diamantina. Seu trabalho explora as interseções entre arte contemporânea e cultura local.",
     tecnica: "Técnica mista",
     local: "Galeria CBARTES",
-    pasta: "marcelo-brant",
+ 
     quantidade: 7,
 
   },
@@ -38,8 +37,8 @@ export const exposicoes: Record<string, Exposicao> = {
     sobre: "Ditto Leite é artista visual, bailarino e diretor artístico do CBARTES. Multi-artista com vasta experiência em dança contemporânea, artes visuais e performance.",
     tecnica: "Pintura e fotografia",
     local: "Galeria CBARTES",
-    pasta: "ditto-leite",
-    quantidade: 10,
+
+    quantidade: 14,
 
   },
 
@@ -52,9 +51,8 @@ export const exposicoes: Record<string, Exposicao> = {
     sobre: "Graciola Rodrigues é artista plástica de Diamantina, conhecida por seu trabalho com retratos e representações da figura feminina.",
     tecnica: "Pintura em acrílico",
     local: "Galeria CBARTES",
-    pasta: "graciola-rodrigues",
 
-    quantidade: 9,
+    quantidade: 7,
 
   },
 
@@ -67,8 +65,8 @@ export const exposicoes: Record<string, Exposicao> = {
     sobre: "Adriana Reis é artista plástica residente em Diamantina, com trabalhos focados em abstração e experimentação com cores e formas.",
     tecnica: "Técnica mista",
     local: "Galeria CBARTES",
-    pasta: "adriana-reis",
-    quantidade: 3,
+
+    quantidade: 2,
 
   },
 
@@ -81,8 +79,8 @@ export const exposicoes: Record<string, Exposicao> = {
     sobre: "Herivelton Silva é artista plástico e poeta de Diamantina. Seu trabalho transita entre artes visuais e literatura.",
     tecnica: "Pintura e instalação",
     local: "Galeria CBARTES",
-    pasta: "5 herivelton silva",
-    quantidade: 9,
+
+    quantidade: 2,
  
   },
 
@@ -95,8 +93,8 @@ export const exposicoes: Record<string, Exposicao> = {
     sobre: "Herê Fonseca é artista plástico de Diamantina, reconhecido por seu trabalho experimental com materiais diversos.",
     tecnica: "Colagem e técnica mista",
     local: "Galeria CBARTES",
-    pasta: "6 here fonseca",
-    quantidade: 7,
+
+    quantidade: 2,
 
   },
 
@@ -109,26 +107,25 @@ export const exposicoes: Record<string, Exposicao> = {
     sobre: "Ofélia Ortega e Ricardo Keferaus são artistas que trabalham tanto individualmente quanto em colaboração, explorando processos criativos compartilhados.",
     tecnica: "Técnica mista",
     local: "Galeria CBARTES",
-    pasta: "7 ofelia ricardo",
-    quantidade: 12,
+    quantidade: 3,
 
   },
 
-  "cristiane-queiroz": {
+  "cristina-queiroz": {
     artista: "Cristiane Queiroz",
     titulo: "O Que Nos Constitui",
     ano: "2023",
     data: "17/06/2023",
     descricao: "Exposição fotográfica que investiga os elementos fundamentais da identidade humana, capturando momentos íntimos e universais.",
-    sobre: "Cristiane Queiroz é fotógrafa de Diamantina. Concepção de Viviane Queiroz. Trabalho focado em retratos e fotografia documental.",
+    sobre: "Cristina Queiroz é fotógrafa de Diamantina. Concepção de Viviane Queiroz. Trabalho focado em retratos e fotografia documental.",
     tecnica: "Fotografia",
     local: "Galeria CBARTES",
-    pasta: "cristiane-queiroz",
-    quantidade: 15,
+
+    quantidade: 2,
 
   },
 
-  "kuta-ndumbu": {
+  "kuta": {
     artista: "Kuta Ndumbu",
     titulo: "A Pintura e a Palavra",
     ano: "2023",
@@ -137,8 +134,8 @@ export const exposicoes: Record<string, Exposicao> = {
     sobre: "Kuta Ndumbu é artista plástico africano. Seu trabalho integra tradições visuais africanas com questões contemporâneas.",
     tecnica: "Pintura em acrílico",
     local: "Galeria CBARTES",
-    pasta: "kuta",
-    quantidade: 11,
+
+    quantidade: 7,
 
   },
 
@@ -151,8 +148,7 @@ export const exposicoes: Record<string, Exposicao> = {
     sobre: "Samora Délcio é artista plástico de Belo Horizonte com trabalhos expostos em diversas galerias de Minas Gerais.",
     tecnica: "Técnica mista",
     local: "Galeria CBARTES",
-    pasta: "10 samora delcio",
-    quantidade: 8,
+    quantidade: 9,
 
   },
 
@@ -165,8 +161,8 @@ export const exposicoes: Record<string, Exposicao> = {
     sobre: "Luciano Ribeiro é artista plástico de Sete Lagoas, reconhecido por suas experimentações com cores vibrantes e composições abstratas.",
     tecnica: "Pintura em acrílico",
     local: "Galeria CBARTES",
-    pasta: "11 luciano ribeiro",
-    quantidade: 10,
+
+    quantidade: 3,
 
   },
 
@@ -179,8 +175,7 @@ export const exposicoes: Record<string, Exposicao> = {
     sobre: "Artistas: Raquel Galiciolli, Annalu Quadros, Graciola Rodrigues, Flora Martins, Ceci Gaiad, Ana Ribeiro, Ditto Leite.",
     tecnica: "Pintura, fotografia e técnica mista",
     local: "Galeria CBARTES",
-    pasta: "coletiva",
-    quantidade: 20,
+    quantidade: 10,
 
   },
 
@@ -193,7 +188,6 @@ export const exposicoes: Record<string, Exposicao> = {
     sobre: "Chrystel Baue é artista plástica francesa residente no Brasil. Seu trabalho transita entre pintura, instalação e performance.",
     tecnica: "Técnica mista e instalação",
     local: "Galeria CBARTES",
-    pasta: "13 chrystel baue",
     quantidade: 14,
 
   },
@@ -207,8 +201,7 @@ export const exposicoes: Record<string, Exposicao> = {
     sobre: "Três olhares fotográficos se encontram para revelar diferentes camadas da cidade e seus habitantes.",
     tecnica: "Fotografia",
     local: "Galeria CBARTES",
-    pasta: "fotografica-2025",
-    quantidade: 18,
+    quantidade: 9,
 
   }
 };

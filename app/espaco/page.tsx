@@ -8,7 +8,7 @@ import Link from "next/link";
 import NavbarInside from "@/components/navbarInside";
 import image from "@/public/images/3.jpg";
 import ctaImage from "@/public/images/pulso.webp";
-import { galeria } from "@/data/galeria";
+import { galeria } from "@/data/espaco/galeria";
 import CustomCursor from "@/components/cursor";
 import Footer from "@/components/footer";
 import { SelosLoop } from "@/components/selosloop";
@@ -53,11 +53,13 @@ function EspacoCultural() {
         >
           <motion.div className="absolute inset-0" style={{ scale }}>
             <motion.div style={{ y }} className="relative w-full h-full">
-              <div className="absolute inset-0 bg-clr4 opacity-30 mix-blend-multiply z-10" />
+              {/* Película escura */}
+              <div className="absolute inset-0 bg-black/40 z-5" />
+              <div className="absolute inset-0 bg-clr2 opacity-20 mix-blend-multiply z-10" />
               <Image
                 src={image}
                 fill
-                alt="Espaço Cultural CBARTES"
+                alt="Espaço CBARTES"
                 priority
                 style={{ objectFit: "cover" }}
                 className="grayscale-30"
@@ -100,21 +102,34 @@ function EspacoCultural() {
               transition={{ duration: 0.6, delay: 0.9 }}
               className="mt-12 gap-4 justify-center 2xl:flex hidden"
             >
-              <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-                <span className="text-sm uppercase tracking-widest">
-                  Ponto de Cultura
-                </span>
-              </div>
-              <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-                <span className="text-sm uppercase tracking-widest">
-                  Galeria
-                </span>
-              </div>
-              <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-                <span className="text-sm uppercase tracking-widest">
-                  Produção
-                </span>
-              </div>
+              <a href="#nossas-acoes">
+                <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">
+                  <span className="text-sm uppercase tracking-widest">
+                    Nossas Ações
+                  </span>
+                </div>
+              </a>
+              <a href="#impacto">
+                <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">
+                  <span className="text-sm uppercase tracking-widest">
+                    Impacto
+                  </span>
+                </div>
+              </a>
+              <a href="#apoio">
+                <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">
+                  <span className="text-sm uppercase tracking-widest">
+                    Apoio
+                  </span>
+                </div>
+              </a>
+              <a href="#clipping">
+                <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">
+                  <span className="text-sm uppercase tracking-widest">
+                    Clipping
+                  </span>
+                </div>
+              </a>
             </motion.div>
           </motion.div>
 
@@ -132,7 +147,7 @@ function EspacoCultural() {
 
         {/* ── Selos + Stats ── */}
         <section className="relative bg-linear-to-b from-black to-zinc-900">
-          <SelosLoop items={[1, 2, 3]} />
+          <SelosLoop items={[7, 8, 17, 10, 16, 19, 13, 6, 1, 2]} />
           <div className="max-w-7xl mx-auto px-8 py-24">
             {/* Título da seção */}
             <motion.div
@@ -195,12 +210,15 @@ function EspacoCultural() {
                 artes. Desde 2022, consolidamos ações que fortalecem a cultura
                 em Diamantina.
               </p>
+                            <Link href="/espaco/quem-somos">
+              <button className="pt-8 text-clr4">Saiba Mais</button>
+              </Link>
             </motion.div>
           </div>
         </section>
 
         {/* Nossas Ações */}
-        <section className="py-32 bg-black">
+        <section id="nossas-acoes" className="py-32 bg-black">
           <div className="max-w-7xl mx-auto px-8">
             <motion.div
               initial={{ opacity: 0 }}
@@ -288,7 +306,7 @@ function EspacoCultural() {
         </section>
 
         {/* Impacto Cultural e Econômico */}
-        <section className="py-32 bg-zinc-900">
+        <section id="impacto" className="py-32 bg-zinc-900">
           <div className="max-w-7xl mx-auto px-8">
             <motion.div
               initial={{ opacity: 0 }}
@@ -308,27 +326,23 @@ function EspacoCultural() {
                   numero: "16",
                   label: "Espetáculos",
                   descricao: "Produzidos entre 2022 e 2025",
-         
                 },
                 {
                   numero: "40",
                   label: "Apresentações",
                   sufixo: "+",
                   descricao: "Públicas em diversos espaços",
-         
                 },
                 {
                   numero: "500",
                   label: "Artistas",
                   sufixo: "+",
                   descricao: "Envolvidos em nossas ações",
-              
                 },
                 {
                   numero: "3.5",
                   label: "Anos",
                   descricao: "De atuação continuada",
-    
                 },
               ].map((item, index) => (
                 <motion.div
@@ -339,10 +353,7 @@ function EspacoCultural() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="text-center group"
                 >
-                  <div
-                    className="text-7xl md:text-8xl font-black mb-4 bg-clip-text text-transparent bg-clr4/80"
-    
-                  >
+                  <div className="text-7xl md:text-8xl font-black mb-4 bg-clip-text text-transparent bg-clr4/80">
                     {item.numero}
                     {item.sufixo}
                   </div>
@@ -363,14 +374,15 @@ function EspacoCultural() {
               <p className="text-lg text-gray-300 leading-relaxed">
                 O CBARTES gera impacto direto na economia criativa local,
                 profissionalizando artistas, promovendo circulação cultural e
-                fortalecendo a cadeia produtiva das artes em Diamantina e região.
+                fortalecendo a cadeia produtiva das artes em Diamantina e
+                região.
               </p>
             </motion.div>
           </div>
         </section>
 
         {/* Apoios e Parcerias */}
-        <section className="py-32 bg-black">
+        <section id="apoio" className="py-32 bg-black">
           <div className="max-w-7xl mx-auto px-8">
             <motion.div
               initial={{ opacity: 0 }}
@@ -400,7 +412,7 @@ function EspacoCultural() {
         </section>
 
         {/* Clipping */}
-        <section className="py-32 bg-zinc-900">
+        <section id="clipping" className="py-32 bg-zinc-900">
           <div className="max-w-7xl mx-auto px-8">
             <motion.div
               initial={{ opacity: 0 }}
@@ -423,7 +435,8 @@ function EspacoCultural() {
                   link: "#",
                 },
                 {
-                  titulo: "Galeria do CBARTES recebe exposição de arte contemporânea",
+                  titulo:
+                    "Galeria do CBARTES recebe exposição de arte contemporânea",
                   veiculo: "Portal Diamantina",
                   data: "Novembro 2024",
                   link: "#",
@@ -435,7 +448,8 @@ function EspacoCultural() {
                   link: "#",
                 },
                 {
-                  titulo: "Ponto de Cultura fortalece cena artística em Diamantina",
+                  titulo:
+                    "Ponto de Cultura fortalece cena artística em Diamantina",
                   veiculo: "Jornal Hoje em Dia",
                   data: "Setembro 2024",
                   link: "#",
@@ -507,7 +521,7 @@ function EspacoCultural() {
               fill
               alt="Inscreva-se"
               style={{ objectFit: "cover" }}
-              className="brightness-50"
+              className="brightness-80"
             />
             <div className="absolute inset-0 bg-black/60" />
           </div>

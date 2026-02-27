@@ -14,14 +14,13 @@ import Link from "next/link";
 import NavbarInside from "@/components/navbarInside";
 import image from "@/public/images/1.jpg";
 import ctaImage from "@/public/images/pulso.webp";
-import { getEspetaculosParaTimeline } from "@/data/espetaculos";
+import { getEspetaculosParaTimeline } from "@/data/escola/espetaculos";
 import { depoimentos } from "@/data/depoimentos";
-import { cursos } from "@/data/cursos"
+import { cursos } from "@/data/escola/cursos";
+import { oficinasHistorico } from "@/data/escola/oficinasHistorico";
 import CustomCursor from "@/components/cursor";
 import Footer from "@/components/footer";
 import { SelosLoop } from "@/components/selosloop";
-
-
 
 const cursosLivres = [
   { nome: "Oratória", vagas: "EmpreendArteLab" },
@@ -54,23 +53,6 @@ const oficinasContratacao = [
   "Oratória e Comunicação (mín. 6h)",
   "Expressão Corporal para empresas",
   "Teatro do Oprimido",
-];
-
-const oficinasHistorico = [
-  { nome: "Dança Contemporânea", ano: "2022", ministrante: "Ditto Leite" },
-  { nome: "Teatro do Oprimido", ano: "2022", ministrante: "Jean Gimenes" },
-  { nome: "Oratória", ano: "2023", ministrante: "Jean Gimenes" },
-  { nome: "Palhaçaria", ano: "2023", ministrante: "Convidado externo" },
-  { nome: "Dança de Salão", ano: "2023", ministrante: "Convidado externo" },
-  { nome: "Música e Movimento", ano: "2024", ministrante: "UFVJM" },
-  { nome: "Vídeo-Dança", ano: "2024", ministrante: "Cib Maia" },
-  { nome: "Corpo.Movídeo", ano: "2024", ministrante: "Convidado externo" },
-  { nome: "Dança Africana", ano: "2025", ministrante: "Convidado externo" },
-  {
-    nome: "Oratória — EmpreendArteLab",
-    ano: "2025",
-    ministrante: "Jean Gimenes",
-  },
 ];
 
 const apresentacoesPorAno: Record<
@@ -283,9 +265,9 @@ function CursoPopup({
 
           {/* CTA */}
           <a href="https://wa.me/553897421313">
-          <button className="w-full py-4 bg-clr3 text-white font-bold uppercase tracking-widest text-sm rounded-sm hover:bg-[#365e1c] transition-colors duration-300">
-            Entre em contato
-          </button>
+            <button className="w-full py-4 bg-clr3 text-white font-bold uppercase tracking-widest text-sm rounded-sm hover:bg-[#365e1c] transition-colors duration-300">
+              Entre em contato
+            </button>
           </a>
         </div>
       </motion.div>
@@ -340,7 +322,9 @@ function Escola() {
         >
           <motion.div className="absolute inset-0" style={{ scale }}>
             <motion.div style={{ y }} className="relative w-full h-full">
-              <div className="absolute inset-0 bg-clr3 opacity-30 mix-blend-multiply z-10" />
+              {/* Película escura */}
+              <div className="absolute inset-0 bg-black/40 z-5" />
+              <div className="absolute inset-0 bg-clr2 opacity-20 mix-blend-multiply z-10" />
               <Image
                 src={image}
                 fill
@@ -383,16 +367,34 @@ function Escola() {
               transition={{ duration: 0.6, delay: 0.9 }}
               className="mt-12 gap-4 justify-center 2xl:flex hidden"
             >
-              {["Dança", "Teatro", "Formação"].map((tag) => (
-                <div
-                  key={tag}
-                  className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20"
-                >
+              <a href="#cursos">
+                <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">
                   <span className="text-sm uppercase tracking-widest">
-                    {tag}
+                    Cursos
                   </span>
                 </div>
-              ))}
+              </a>
+              <a href="#oficinas">
+                <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">
+                  <span className="text-sm uppercase tracking-widest">
+                    Oficinas
+                  </span>
+                </div>
+              </a>
+              <a href="#espetaculos">
+                <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">
+                  <span className="text-sm uppercase tracking-widest">
+                    Espetáculos
+                  </span>
+                </div>
+              </a>
+              <a href="#depoimentos">
+                <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">
+                  <span className="text-sm uppercase tracking-widest">
+                    Depoimentos
+                  </span>
+                </div>
+              </a>
             </motion.div>
           </motion.div>
 
@@ -410,7 +412,7 @@ function Escola() {
 
         {/* ── Selos + Stats ── */}
         <section className="relative bg-linear-to-b from-black to-zinc-900">
-          <SelosLoop items={[1, 2, 3]} />
+          <SelosLoop items={[4, 5, 19, 9, 14, 1, 2]} />
           <div className="max-w-7xl mx-auto px-8 py-24">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16">
               {[
@@ -439,7 +441,7 @@ function Escola() {
           </div>
         </section>
 
-                <section className="py-32 bg-zinc-900">
+        <section className="py-32 bg-zinc-900">
           <div className="max-w-4xl mx-auto px-8 text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -457,12 +459,15 @@ function Escola() {
                 artes. Desde 2022, consolidamos ações que fortalecem a cultura
                 em Diamantina.
               </p>
+                            <Link href="/escola/quem-somos">
+              <button className="pt-8 text-clr3">Saiba Mais</button>
+              </Link>
             </motion.div>
           </div>
         </section>
 
         {/* ── Cursos Regulares ── */}
-        <section className="py-32 relative bg-black">
+        <section id="cursos" className="py-32 relative bg-black">
           <div className="max-w-7xl mx-auto px-8">
             <motion.div
               initial={{ opacity: 0 }}
@@ -574,7 +579,7 @@ function Escola() {
         </section>
 
         {/* ── Oficinas ── */}
-        <section className="py-32 bg-black">
+        <section id="oficinas" className="py-32 bg-black">
           <div className="max-w-7xl mx-auto px-8">
             <motion.div
               initial={{ opacity: 0 }}
@@ -671,15 +676,19 @@ function Escola() {
               </div>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                 {oficinasHistorico.map((o, i) => (
-                  <div
-                    key={i}
-                    className="py-3 px-4 border-l-2 border-zinc-800 hover:border-clr3 transition-colors duration-300"
-                  >
-                    <p className="font-semibold text-white text-sm">{o.nome}</p>
-                    <p className="text-xs text-gray-500 mt-1">
-                      {o.ano} · {o.ministrante}
-                    </p>
-                  </div>
+                  <Link key={i} href={`/escola/oficinas/${o.slug}`}>
+                    <div
+                      key={i}
+                      className="py-3 px-4 border-l-2 border-zinc-800 hover:border-clr3 transition-colors duration-300"
+                    >
+                      <p className="font-semibold text-white text-sm">
+                        {o.nome}
+                      </p>
+                      <p className="text-xs text-gray-500 mt-1">
+                        {o.ano} · {o.ministrante}
+                      </p>
+                    </div>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -704,7 +713,7 @@ function Escola() {
         </section>
 
         {/* ── Espetáculos e Apresentações ── */}
-        <section className="py-32 bg-zinc-900 relative">
+        <section id="espetaculos" className="py-32 bg-zinc-900 relative">
           <div className="max-w-7xl mx-auto px-8">
             <motion.div
               initial={{ opacity: 0 }}
@@ -827,7 +836,7 @@ function Escola() {
         </section>
 
         {/* ── Depoimentos ── */}
-        <section className="py-32 bg-black relative overflow-hidden">
+        <section id="depoimentos" className="py-32 bg-black relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-8">
             <motion.h2
               initial={{ opacity: 0 }}
@@ -882,7 +891,7 @@ function Escola() {
               fill
               alt="Inscreva-se"
               style={{ objectFit: "cover" }}
-              className="brightness-50"
+              className="brightness-80"
             />
             <div className="absolute inset-0 bg-black/60" />
           </div>
@@ -902,7 +911,8 @@ function Escola() {
               transition={{ delay: 0.2 }}
               className="text-xl md:text-2xl text-gray-200 mb-12 leading-relaxed"
             >
-              Somos um ecossistema cultural em Diamantina com produção continuada
+              Somos um ecossistema cultural em Diamantina com produção
+              continuada
               <br />
               Compromisso real com a expansão das artes cênicas
             </motion.p>
@@ -922,7 +932,6 @@ function Escola() {
           </div>
         </section>
         <Footer color="#649d3f" />
-
       </main>
     </>
   );

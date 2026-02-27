@@ -25,10 +25,13 @@ export default function NavbarInside({
     >
       <div className="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="hidden md:flex justify-around w-full gap-6">
-          <Link href="/associacao" className="hover:opacity-70 transition">
-            Associação
-          </Link>
-          <Link href="/espaco" className="hover:opacity-70 transition">
+<Link
+  href="/associacao"
+  className="inline-block py-4 hover:opacity-70 transition"
+>
+  Associação
+</Link>
+          <Link href="/espaco" className="inline-block py-4 hover:opacity-70 transition">
             Espaço Cultural
           </Link>
         </div>
@@ -46,10 +49,10 @@ export default function NavbarInside({
         </div>
 
         <div className="hidden md:flex justify-around w-full">
-          <Link href="/escola" className="hover:opacity-70 transition">
+          <Link href="/escola" className="inline-block py-4 hover:opacity-70 transition">
             Escola
           </Link>
-          <Link href="/companhia" className="hover:opacity-70 transition">
+          <Link href="/companhia" className="inline-block py-4 hover:opacity-70 transition">
             Companhia
           </Link>
         </div>

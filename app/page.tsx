@@ -59,7 +59,7 @@ const HomePage = () => {
     {
       href: "/companhia",
       title: "Companhia",
-      video: "/videos/video4.mp4",
+      video: "/videos/pulsoCorte.mp4",
       color: "bg-red-500/30",
     },
   ];

@@ -10,6 +10,7 @@ import Footer from "@/components/footer";
 import { SelosLoop } from "@/components/selosloop";
 import image from "@/public/images/5.jpg";
 import ctaImage from "@/public/images/pulso.webp";
+import Link from "next/link";
 
 const nucleos = [
   {
@@ -68,13 +69,7 @@ const espetaculos = [
   },
 ];
 
-const timeline = [
-  { ano: "2022", evento: "Fundação da Confraria Tijucana de Artes" },
-  { ano: "2023", evento: "Primeira produção autoral - Espaço Sagrado" },
-  { ano: "2024", evento: "Consolidação do núcleo de pesquisa" },
-  { ano: "2025", evento: "Expansão nacional e documentário" },
-  { ano: "2026", evento: "Projeto PLUMAS em desenvolvimento" },
-];
+
 
 function Companhia() {
   const container = useRef<HTMLDivElement>(null);
@@ -116,11 +111,13 @@ function Companhia() {
         >
           <motion.div className="absolute inset-0" style={{ scale }}>
             <motion.div style={{ y }} className="relative w-full h-full">
-              <div className="absolute inset-0 bg-clr1 opacity-30 mix-blend-multiply z-10" />
+              {/* Película escura */}
+              <div className="absolute inset-0 bg-black/40 z-5" />
+              <div className="absolute inset-0 bg-clr2 opacity-20 mix-blend-multiply z-10" />
               <Image
                 src={image}
                 fill
-                alt="Confraria Tijucana de Artes"
+                alt="Confraria"
                 priority
                 style={{ objectFit: "cover" }}
                 className="grayscale-30"
@@ -155,7 +152,7 @@ function Companhia() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-xl md:text-3xl mt-8 font-light tracking-wide text-gray-300"
             >
-              Corpo, arte e território em movimento
+              Corpo, território e memória em movimento
             </motion.p>
 
             <motion.div
@@ -164,18 +161,34 @@ function Companhia() {
               transition={{ duration: 0.6, delay: 0.9 }}
               className="mt-12 gap-4 justify-center 2xl:flex hidden"
             >
-              {["Dança-Teatro", "Dança-Arquitetura", "Processos Criativos"].map(
-                (tag) => (
-                  <div
-                    key={tag}
-                    className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20"
-                  >
-                    <span className="text-sm uppercase tracking-widest">
-                      {tag}
-                    </span>
-                  </div>
-                )
-              )}
+              <a href="#quem-somos">
+                <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">
+                  <span className="text-sm uppercase tracking-widest">
+                    Quem Somos
+                  </span>
+                </div>
+              </a>
+              <a href="#pesquisa">
+                <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">
+                  <span className="text-sm uppercase tracking-widest">
+                    Núcleo de pesquisa
+                  </span>
+                </div>
+              </a>
+              <a href="#projetos">
+                <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">
+                  <span className="text-sm uppercase tracking-widest">
+                    Projetos
+                  </span>
+                </div>
+              </a>
+              <a href="#em-execucao">
+                <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">
+                  <span className="text-sm uppercase tracking-widest">
+                    Em execução
+                  </span>
+                </div>
+              </a>
             </motion.div>
           </motion.div>
 
@@ -193,34 +206,8 @@ function Companhia() {
 
         {/* Selos + Stats */}
         <section className="relative bg-linear-to-b from-black to-zinc-900">
-          <SelosLoop items={[1, 2, 3]} />
-          <div className="max-w-7xl mx-auto px-8 py-24">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16">
-              {[
-                { value: 5, label: "Espetáculos", suffix: "" },
-                { value: 3, label: "Núcleos de Pesquisa", suffix: "" },
-                { value: 5, label: "Anos", suffix: "" },
-                { value: 1, label: "Documentário", suffix: "" },
-              ].map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="text-center group"
-                >
-                  <div className="text-6xl md:text-8xl font-black mb-4 bg-linear-to-br from-clr1 to-[#a8302a] bg-clip-text text-transparent">
-                    {stat.value}
-                    {stat.suffix}
-                  </div>
-                  <div className="text-sm md:text-base uppercase tracking-widest text-gray-400 group-hover:text-white transition-colors duration-300">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+          <SelosLoop items={[20, 18, 9, 1, 2, 3]} />
+
         </section>
 
         {/* Manifesto */}
@@ -245,11 +232,14 @@ function Companhia() {
                 espetáculos autorais que refletem sobre a contemporaneidade.
               </p>
             </motion.div>
+            <Link href="/companhia/quem-somos">
+              <button className="pt-8 text-clr1">Saiba Mais</button>
+            </Link>
           </div>
         </section>
 
         {/* Fundador */}
-        <section className="py-32 bg-black">
+        <section id="quem-somos" className="py-32 bg-black">
           <div className="max-w-6xl mx-auto px-8">
             <motion.div
               initial={{ opacity: 0 }}
@@ -258,9 +248,9 @@ function Companhia() {
               className="mb-20"
             >
               <h2 className="text-8xl font-black mb-6 leading-none">
-                Diretor
+                Quem
                 <br />
-                <span className="text-clr1">Artístico</span>
+                <span className="text-clr1">Somos</span>
               </h2>
               <div className="w-32 h-1 bg-linear-to-r from-clr1 to-transparent" />
             </motion.div>
@@ -322,7 +312,7 @@ function Companhia() {
         </section>
 
         {/* Núcleos de Pesquisa */}
-        <section className="py-32 bg-zinc-900">
+        <section id="pesquisa" className="py-32 bg-zinc-900">
           <div className="max-w-7xl mx-auto px-8">
             <motion.div
               initial={{ opacity: 0 }}
@@ -391,7 +381,7 @@ function Companhia() {
         </section>
 
         {/* Espetáculos */}
-        <section className="py-32 bg-black">
+        <section id="projetos" className="py-32 bg-black">
           <div className="max-w-6xl mx-auto px-8">
             <motion.div
               initial={{ opacity: 0 }}
@@ -400,7 +390,7 @@ function Companhia() {
               className="mb-20"
             >
               <h2 className="text-8xl font-black mb-6 leading-none">
-                <span className="text-clr1">Espetáculos</span>
+                <span className="text-clr1">Projetos</span>
               </h2>
               <div className="w-32 h-1 bg-linear-to-r from-clr1 to-transparent" />
             </motion.div>
@@ -439,47 +429,8 @@ function Companhia() {
           </div>
         </section>
 
-        {/* Timeline */}
-        <section className="py-32 bg-zinc-900">
-          <div className="max-w-4xl mx-auto px-8">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="mb-20 text-center"
-            >
-              <h2 className="text-6xl md:text-7xl font-black mb-6">
-                Nossa <span className="text-clr1">Trajetória</span>
-              </h2>
-              <div className="w-32 h-1 bg-linear-to-r from-clr1 to-transparent mx-auto" />
-            </motion.div>
-
-            <div className="space-y-12">
-              {timeline.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex gap-8 items-start border-l-2 border-zinc-800 pl-8 py-2"
-                >
-                  <div className="text-5xl font-black text-clr1 w-24 shrink-0">
-                    {item.ano}
-                  </div>
-                  <div className="flex-1 pt-3">
-                    <p className="text-lg text-gray-300 leading-relaxed">
-                      {item.evento}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Projeto PLUMAS */}
-        <section className="py-32 bg-black">
+        <section id="em-execucao" className="py-32 bg-black">
           <div className="max-w-5xl mx-auto px-8 text-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -517,7 +468,7 @@ function Companhia() {
               fill
               alt="Faça parte"
               style={{ objectFit: "cover" }}
-              className="brightness-50"
+              className="brightness-80"
             />
             <div className="absolute inset-0 bg-black/60" />
           </div>

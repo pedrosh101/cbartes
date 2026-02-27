@@ -12,13 +12,14 @@ export default function Footer({ color }: FooterProps) {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Marca */}
           <div className="md:col-span-2">
-            <p className="text-3xl font-black">ESCOLA</p>
+            <p className="text-3xl font-black">Conheça o </p>
             <p className="text-3xl font-black  mb-5" style={{ color: color }}>
               CBARTES
             </p>
             <p className="text-sm text-gray-400 leading-relaxed max-w-xs">
-              Escola de artes cênicas em Diamantina, Minas Gerais. Formação em
-              dança, teatro e outras linguagens artísticas.
+              Espaço integrado de artes e educação.
+              <br />
+              Cursos e programações artísticas.
             </p>
           </div>
 

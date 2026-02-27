@@ -14,7 +14,7 @@ import {
   getImagensPrincipais,
   getImagensExtras,
   type GaleriaExtra,
-} from "@/data/espetaculos";
+} from "@/data/escola/espetaculos";
 
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";

@@ -14,7 +14,7 @@ export function SelosLoop({ items }: SelosLoopProps) {
         {items.map((n, i) => (
           <div
             key={i}
-            className="relative w-44 h-44 shrink-0 mx-44 opacity-60 hover:opacity-100 transition-opacity duration-300"
+            className="relative w-44 h-36 shrink-0 mx-14 opacity-60 hover:opacity-100 transition-opacity duration-300"
           >
             <Image
               src={`/selos/selo${n}.png`}

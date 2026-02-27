@@ -10,7 +10,7 @@ import NavbarInside from "@/components/navbarInside";
 import CustomCursor from "@/components/cursor";
 import Footer from "@/components/footer";
 import { MdOutlineKeyboardReturn } from "react-icons/md";
-import { exposicoes } from "@/data/exposicoes-data";
+import { exposicoes } from "@/data/espaco/exposicoes-data";
 
 // Swiper imports
 import { Swiper, SwiperSlide } from "swiper/react";
