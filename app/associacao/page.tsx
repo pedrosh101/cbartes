@@ -60,7 +60,7 @@ const projetos = [
   {
     id: 4,
     nome: "Periferia para Periferia",
-    link: "/espaco-cultural",
+    link: "/espaco",
     subtitulo: "Arte e Transformação Social",
     descricao: "Levando arte para comunidades",
     itens: [
@@ -73,7 +73,7 @@ const projetos = [
   {
     id: 5,
     nome: "CineCBARTES",
-    link: "/espaco-cultural",
+    link: "/espaco",
     subtitulo: "Cinema e Audiovisual",
     descricao: "Formação e exibição cinematográfica",
     itens: [
@@ -86,7 +86,7 @@ const projetos = [
   {
     id: 6,
     nome: "Galeria",
-    link: "/espaco-cultural/galeria",
+    link: "/espaco/galeria",
     subtitulo: "Artes Visuais",
     descricao: "Espaço para exposições e artistas visuais",
     itens: [

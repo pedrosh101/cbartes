@@ -11,7 +11,7 @@ export interface Galeria {
 export const galeria: Galeria[] = [
     {
     title: "Eventos CBARTES",
-    link: "/espaco-cultural/eventos",
+    link: "/espaco/eventos",
 
     items: [
       "Saraus: 8 edições com música, poesia e artes plásticas",
@@ -37,7 +37,7 @@ export const galeria: Galeria[] = [
   },
   {
     title: "Oficinas",
-    link: "/espaco-cultural/oficinas",
+    link: "/escola/oficinas",
 
     count: 18,
     description: "Oficinas realizadas desde 2022",
@@ -51,7 +51,7 @@ export const galeria: Galeria[] = [
   },
   {
     title: "Articulação em Redes",
-    link: "/espaco-cultural/redes",
+    link: "/espaco/redes",
     count: 42,
     description: "Parcerias e ações colaborativas",
     items: [
@@ -64,7 +64,7 @@ export const galeria: Galeria[] = [
   },
   {
     title: "Artistas Recebidos",
-    link: "/espaco-cultural/residencias",
+    link: "/espaco/residencias",
     items: [
       "Hospedagem e suporte para artistas convidados",
       "Espaço para criação e pesquisa",
@@ -74,7 +74,7 @@ export const galeria: Galeria[] = [
   },
     {
     title: "Cine CBARTES",
-    link: "/espaco-cultural/cine",
+    link: "/espaco/cine",
     items: [
       "Exibições de filmes e documentários",
       "Sessão Espaço Sagrado (2024)",
@@ -84,7 +84,7 @@ export const galeria: Galeria[] = [
   },
     {
     title: "Produção Audiovisual",
-    link: "/espaco-cultural/audiovisual",
+    link: "/espaco/audiovisual",
     items: [
       "Captação e edição de espetáculos",
       "Documentário BRINCANTES (2025)",
@@ -95,7 +95,7 @@ export const galeria: Galeria[] = [
   },
     {
     title: "Ocupações de Espaços Públicos",
-    link: "/espaco-cultural/ocupacoes",
+    link: "/espaco/ocupacoes",
     items: [
       "Aulas-show em praças públicas",
       "Quadrilha do CBARTES - Praça do Mercado Velho",

@@ -41,19 +41,19 @@ const HomePage = () => {
     {
       href: "/associacao",
       title: "Associação",
-      video: "/videos/video1.mp4",
+      video: "/videos/brincantesCorte.mp4",
       color: "bg-yellow-500/30",
     },
     {
       href: "/espaco",
       title: "Espaço Cultural & Ponto de Cultura",
-      video: "/videos/video2.mp4",
+      video: "/videos/espacoCorte.mp4",
       color: "bg-blue-500/30",
     },
     {
       href: "/escola",
       title: "Escola",
-      video: "/videos/video3.mp4",
+      video: "/videos/subvCorte.mp4",
       color: "bg-green-500/30",
     },
     {
@@ -94,7 +94,7 @@ const HomePage = () => {
 
                   {/* Título */}
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <h2 className="text-white text-2xl md:text-4xl font-light tracking-wider uppercase px-4 text-center w-[30vw]">
+                    <h2 className="text-white text-2xl md:text-4xl font-light tracking-wider uppercase  text-center xl:w-[30vw] w-[60vw]">
                       {item.title}
                     </h2>
                   </div>

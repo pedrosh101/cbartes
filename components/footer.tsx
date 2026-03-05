@@ -28,7 +28,7 @@ export default function Footer({ color }: FooterProps) {
             <p className="text-[10px] uppercase tracking-widest text-gray-500 mb-6">
               Contato
             </p>
-            <div className="space-y-4 text-sm">
+            <div className="space-y-4 text-sm ">
               <div className="flex items-start gap-3 text-gray-300">
                 <FaMapMarkerAlt size={20} />
                 <span>
@@ -57,6 +57,16 @@ export default function Footer({ color }: FooterProps) {
                 <FaEnvelope size={18} />
                 espacoculturalcbartes@gmail.com
               </a>
+              <a
+                href="mailto:espacoculturalcbartes@gmail.com"
+                className="flex items-center gap-3 text-gray-300 transition-colors"
+                style={{}}
+                onMouseEnter={(e) => (e.currentTarget.style.color = color)}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "")}
+              >
+                <FaEnvelope size={18} />
+                associacaoamigosdocbartes@gmail.com
+              </a>
             </div>
           </div>
 
@@ -65,9 +75,20 @@ export default function Footer({ color }: FooterProps) {
             <p className="text-[10px] uppercase tracking-widest text-gray-500 mb-6">
               Redes Sociais
             </p>
-            <div className="space-y-4 text-sm">
+            <div className="space-y-4 text-sm tracking-wide">
               <a
                 href="https://instagram.com/cbartes_"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-gray-300 transition-colors w-fit "
+                style={{}}
+                onMouseEnter={(e) => (e.currentTarget.style.color = color)}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "")}
+              >
+                <FaInstagram size={20} />@cbartes_
+              </a>
+              <a
+                href="https://www.instagram.com/associacaoamigosdocbartes/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-gray-300 transition-colors w-fit"
@@ -75,7 +96,18 @@ export default function Footer({ color }: FooterProps) {
                 onMouseEnter={(e) => (e.currentTarget.style.color = color)}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "")}
               >
-                <FaInstagram size={20} />
+                <FaInstagram size={20} />@associacaoamigosdocbartes
+              </a>
+              <a
+                href="https://www.instagram.com/confraria_tijucana/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-gray-300 transition-colors w-fit"
+                style={{}}
+                onMouseEnter={(e) => (e.currentTarget.style.color = color)}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "")}
+              >
+                <FaInstagram size={20} />@confraria_tijucana
               </a>
             </div>
           </div>

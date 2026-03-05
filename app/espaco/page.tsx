@@ -505,7 +505,7 @@ function EspacoCultural() {
               className="mt-12 text-center"
             >
               <Link
-                href="/espaco-cultural/midia"
+                href="/espaco/midia"
                 className="inline-block px-8 py-4 bg-transparent border-2 border-clr4 text-clr4 font-bold uppercase tracking-wider rounded-full hover:bg-clr4 hover:text-white transition-all duration-300"
               >
                 Ver todo o clipping
