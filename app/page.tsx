@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect } from "react";
 import { useRef } from "react";
 import Lenis from "lenis";
@@ -103,14 +104,18 @@ const HomePage = () => {
             ))}
           </div>
 
-          {/* Logo centralizada */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-2 rounded-2xl shadow-2xl pointer-events-none">
-            <img
-              src="/logo.png"
-              alt="Logo"
-              className="h-20 w-20 md:h-32 md:w-32  object-cover"
-            />
-          </div>
+
+
+<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white/90 p-2 rounded-sm shadow-2xl pointer-events-none">
+  <Image
+    src="/logoy.png"
+    alt="Logo"
+    width={160}
+    height={160}
+    className="h-20 w-20 md:h-32 md:w-32 2xl:h-40 2xl:w-40 object-contain"
+    priority
+  />
+</div>
         </div>
       </div>
     </>

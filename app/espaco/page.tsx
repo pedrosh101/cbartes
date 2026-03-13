@@ -90,7 +90,7 @@ function EspacoCultural() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-xl md:text-3xl mt-8 font-light tracking-wide text-gray-300"
+              className="text-2xl 2xl:text-3xl 2xl:mt-8 font-light tracking-wide text-gray-300"
             >
               Território vivo de criação, formação, acesso a arte como direito e
               economia criativa
@@ -100,32 +100,32 @@ function EspacoCultural() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.9 }}
-              className="mt-12 gap-4 justify-center 2xl:flex hidden"
+              className="2xl:mt-12 mt-4 gap-4 justify-center flex"
             >
               <a href="#nossas-acoes">
                 <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">
-                  <span className="text-sm uppercase tracking-widest">
+                  <span className="2xl:text-sm text-xs uppercase tracking-widest">
                     Nossas Ações
                   </span>
                 </div>
               </a>
               <a href="#impacto">
                 <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">
-                  <span className="text-sm uppercase tracking-widest">
+                  <span className="2xl:text-sm text-xs uppercase tracking-widest">
                     Impacto
                   </span>
                 </div>
               </a>
               <a href="#apoio">
                 <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">
-                  <span className="text-sm uppercase tracking-widest">
+                  <span className="2xl:text-sm text-xs uppercase tracking-widest">
                     Apoio
                   </span>
                 </div>
               </a>
               <a href="#clipping">
                 <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">
-                  <span className="text-sm uppercase tracking-widest">
+                  <span className="2xl:text-sm text-xs uppercase tracking-widest">
                     Clipping
                   </span>
                 </div>

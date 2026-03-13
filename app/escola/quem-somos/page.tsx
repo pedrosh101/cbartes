@@ -7,6 +7,9 @@ import Image from "next/image";
 import Link from "next/link";
 import NavbarInside from "@/components/navbarInside";
 import CustomCursor from "@/components/cursor";
+import GalleryWithLightbox from "@/components/galleryWithLightbox";
+import { quemSomosGallery } from "@/data/quemSomosGallery";
+
 import Footer from "@/components/footer";
 
 function QuemSomos() {
@@ -126,53 +129,63 @@ function QuemSomos() {
           </div>
         </section>
 
-        {/* Bloco 2: Imagem à esquerda + Texto */}
-        <section className="py-32 bg-zinc-900">
-          <div className="max-w-7xl mx-auto px-8">
-            <div className="grid md:grid-cols-2 gap-16 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="relative aspect-square overflow-hidden rounded-sm order-2 md:order-1"
-              >
-                <Image
-                  src="/images/2.jpg"
-                  alt="Nossa Missão"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 bg-clr3/10" />
-              </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="order-1 md:order-2"
-              >
-                <h2 className="text-5xl md:text-6xl font-black mb-8 leading-tight">
-                  Nossa <span className="text-clr3">Missão</span>
-                </h2>
-                <div className="w-24 h-1 bg-clr3 mb-8" />
-                <div className="space-y-6 text-lg text-gray-300 leading-relaxed">
-                  <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                    doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-                    veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-                  </p>
-                  <p>
-                    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
-                    sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-                  </p>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
+{/* Bloco 2: Fundação */}
+<section className="py-32 bg-zinc-900">
+  <div className="max-w-7xl mx-auto px-8">
+
+    <div className="text-center mb-20">
+      <h2 className="text-5xl md:text-6xl font-black mb-6">
+        <span className="text-clr3">Fundação</span>
+      </h2>
+      <div className="w-24 h-1 bg-clr3 mx-auto" />
+    </div>
+
+    <div className="grid md:grid-cols-2 gap-16">
+
+      {/* Perfil 1 */}
+      <div className="flex flex-col items-center text-center">
+        <div className="relative w-96 h-96 mb-6 rounded-sm overflow-hidden">
+          <Image
+            src="/images/quem-somos/ditto.webp"
+            alt="Ditto"
+            fill
+            className="object-cover"
+          />
+        </div>
+
+        <h3 className="text-2xl font-black mb-2">Ditto</h3>
+        <p className="text-gray-400 max-w-md">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Sed do eiusmod tempor incididunt ut labore et dolore magna
+          aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+        </p>
+      </div>
+
+      {/* Perfil 2 */}
+      <div className="flex flex-col items-center text-center">
+        <div className="relative w-96 h-96 mb-6 rounded-sm overflow-hidden">
+          <Image
+            src="/images/quem-somos/jean.webp"
+            alt="Jean"
+            fill
+            className="object-cover"
+          />
+        </div>
+
+        <h3 className="text-2xl font-black mb-2">Jean</h3>
+        <p className="text-gray-400 max-w-md">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Sed do eiusmod tempor incididunt ut labore et dolore magna
+          aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+ 
 
         {/* Bloco 3: Destaque Full Width com overlay */}
         <section className="py-32 bg-black relative overflow-hidden">
@@ -364,6 +377,16 @@ function QuemSomos() {
         </section>
 
         {/* CTA Final */}
+
+        <GalleryWithLightbox
+  sections={[
+    {
+      titulo: "Galeria",
+      imagens: quemSomosGallery,
+    },
+  ]}
+/>
+
         <section className="py-24 bg-black border-t border-zinc-800">
           <div className="max-w-4xl mx-auto px-8 text-center">
             <motion.div

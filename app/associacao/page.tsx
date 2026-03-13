@@ -285,7 +285,7 @@ function Associacao() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              <h1 className="text-[12vw] md:text-[10vw] font-black leading-[0.85] tracking-wider my-4">
+              <h1 className="text-[8vw] 2xl:text-[10vw] font-black leading-[0.85] tracking-wider my-4">
                 ASSOCIAÇÃO
                 <br />
                 <span className="text-transparent bg-clip-text bg-linear-to-r from-clr2 to-[#d4b93c]">
@@ -298,7 +298,7 @@ function Associacao() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-xl md:text-3xl mt-8 font-light tracking-wide text-gray-300"
+              className="text-2xl 2xl:text-3xl 2xl:mt-8 font-light tracking-wide text-gray-300"
             >
               Projetos sociais e democratização da cultura
             </motion.p>
@@ -307,32 +307,32 @@ function Associacao() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.9 }}
-              className="mt-12 gap-4 justify-center 2xl:flex hidden"
+              className="2xl:mt-12 mt-4 gap-4 justify-center flex"
             >
               <a href="#nossos-projetos">
                 <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">
-                  <span className="text-sm uppercase tracking-widest">
+                  <span className="2xl:text-sm text-xs uppercase tracking-widest">
                     Nossos Projetos
                   </span>
                 </div>
               </a>
               <a href="#acoes-realizadas">
                 <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">
-                  <span className="text-sm uppercase tracking-widest">
+                  <span className="2xl:text-sm text-xs uppercase tracking-widest">
                     Ações Realizadas
                   </span>
                 </div>
               </a>
               <a href="#depoimentos">
                 <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">
-                  <span className="text-sm uppercase tracking-widest">
+                  <span className="2xl:text-sm text-xs uppercase tracking-widest">
                     Depoimentos
                   </span>
                 </div>
               </a>
               <a href="#transparencia">
                 <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">
-                  <span className="text-sm uppercase tracking-widest">
+                  <span className="2xl:text-sm text-xs uppercase tracking-widest">
                     Transparência
                   </span>
                 </div>
@@ -340,7 +340,7 @@ function Associacao() {
             </motion.div>
           </motion.div>
 
-          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20">
+          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 ">
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ repeat: Infinity, duration: 1.5 }}

@@ -8,7 +8,7 @@ import NavbarInside from "@/components/navbarInside";
 import CustomCursor from "@/components/cursor";
 import Footer from "@/components/footer";
 import { SelosLoop } from "@/components/selosloop";
-import image from "@/public/images/5.jpg";
+import image from "@/public/images/confraria-bg.jpg";
 import ctaImage from "@/public/images/pulso.webp";
 import Link from "next/link";
 
@@ -69,8 +69,6 @@ const espetaculos = [
   },
 ];
 
-
-
 function Companhia() {
   const container = useRef<HTMLDivElement>(null);
 
@@ -111,8 +109,6 @@ function Companhia() {
         >
           <motion.div className="absolute inset-0" style={{ scale }}>
             <motion.div style={{ y }} className="relative w-full h-full">
-              {/* Película escura */}
-              <div className="absolute inset-0 bg-black/40 z-5" />
               <div className="absolute inset-0 bg-clr2 opacity-20 mix-blend-multiply z-10" />
               <Image
                 src={image}
@@ -135,22 +131,21 @@ function Companhia() {
               transition={{ duration: 1, delay: 0.2 }}
               className="overflow-hidden"
             >
-              <h1 className="text-[7vw] font-black leading-none tracking-wider my-4">
-                CONFRARIA
-                <br />
-                TIJUCANA
-                <br />
-                <span className="text-transparent bg-clip-text bg-linear-to-r from-clr1 to-[#a8302a]">
-                  DE ARTES
-                </span>
-              </h1>
+              <Image
+                src="/confraria-logo.png"
+                alt="Confraria"
+                width={800}
+                height={300}
+                priority
+                className="mx-auto w-[70vw] max-w-175 lg:h-60 2xl:h-120 object-contain"
+              />
             </motion.div>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-xl md:text-3xl mt-8 font-light tracking-wide text-gray-300"
+              className="text-2xl 2xl:text-3xl 2xl:mt-8 font-light tracking-wide text-gray-300"
             >
               Corpo, território e memória em movimento
             </motion.p>
@@ -159,32 +154,32 @@ function Companhia() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.9 }}
-              className="mt-12 gap-4 justify-center 2xl:flex hidden"
+              className="2xl:mt-12 mt-4 gap-4 justify-center flex"
             >
               <a href="#quem-somos">
                 <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">
-                  <span className="text-sm uppercase tracking-widest">
+                  <span className="2xl:text-sm text-xs uppercase tracking-widest">
                     Quem Somos
                   </span>
                 </div>
               </a>
               <a href="#pesquisa">
                 <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">
-                  <span className="text-sm uppercase tracking-widest">
+                  <span className="2xl:text-sm text-xs uppercase tracking-widest">
                     Núcleo de pesquisa
                   </span>
                 </div>
               </a>
               <a href="#projetos">
                 <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">
-                  <span className="text-sm uppercase tracking-widest">
+                  <span className="2xl:text-sm text-xs uppercase tracking-widest">
                     Projetos
                   </span>
                 </div>
               </a>
               <a href="#em-execucao">
                 <div className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">
-                  <span className="text-sm uppercase tracking-widest">
+                  <span className="2xl:text-sm text-xs uppercase tracking-widest">
                     Em execução
                   </span>
                 </div>
@@ -207,7 +202,6 @@ function Companhia() {
         {/* Selos + Stats */}
         <section className="relative bg-linear-to-b from-black to-zinc-900">
           <SelosLoop items={[20, 18, 9, 1, 2, 3]} />
-
         </section>
 
         {/* Manifesto */}
