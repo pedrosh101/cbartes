@@ -10,13 +10,13 @@ import CustomCursor from "@/components/cursor";
 import Footer from "@/components/footer";
 import GalleryWithLightbox from "@/components/galleryWithLightbox";
 import { MdOutlineKeyboardReturn } from "react-icons/md";
+import { articulacaoRedes } from "@/data/espaco/articulacao-rede";
 import type { ImagemGaleria } from "@/components/galleryWithLightbox";
-import { oficinas } from "@/data/escola/oficinas";
 
-function OficinaPage() {
+function redesPage() {
   const params = useParams();
-  const slug = params.oficina as string;
-  const oficina = oficinas[slug];
+  const slug = params.redes as string;
+  const redes = articulacaoRedes[slug];
 
   useEffect(() => {
     const lenis = new Lenis();
@@ -30,18 +30,18 @@ function OficinaPage() {
 
   
 
-  if (!oficina) {
+  if (!redes) {
     return (
       <>
-        <NavbarInside color="#649d3f" />
+        <NavbarInside color="#3e6af3" />
         <div className="min-h-screen flex items-center justify-center bg-black text-white pt-32">
           <div className="text-center max-w-2xl px-8">
             <h1 className="text-4xl font-bold mb-4">Página não encontrado</h1>
             <Link
               href="/espaco"
-              className="inline-block px-6 py-3 bg-clr3 text-white rounded-sm hover:bg-[#2a5299] transition-colors mt-4"
+              className="inline-block px-6 py-3 bg-clr4 text-white rounded-sm hover:bg-[#2a5299] transition-colors mt-4"
             >
-              Voltar para Oficinas
+              Voltar para Espaço Cultural
             </Link>
           </div>
         </div>
@@ -49,11 +49,10 @@ function OficinaPage() {
     );
   }
 
-  // Gera array de imagens: /images/oficinas/slug/1.jpg, 2.jpg...
-  const imagens: ImagemGaleria[] = oficina.imagensCount > 0
-    ? Array.from({ length: oficina.imagensCount }, (_, i) => ({
-        src: `/images/oficinas/${slug}/${i + 1}.jpg`,
-        alt: `${oficina.titulo} - Foto ${i + 1}`,
+  const imagens: ImagemGaleria[] = redes.imagensCount > 0
+    ? Array.from({ length: redes.imagensCount }, (_, i) => ({
+        src: `/images/redes/${slug}/${i + 1}.webp`,
+        alt: `${redes.titulo} - Foto ${i + 1}`,
       }))
     : [];
 
@@ -68,7 +67,7 @@ function OficinaPage() {
   return (
     <>
       <CustomCursor />
-      <NavbarInside color="#649d3f" />
+      <NavbarInside color="#3e6af3" />
 
       <main className="font-futura bg-black text-white min-h-screen">
         {/* Header */}
@@ -82,44 +81,44 @@ function OficinaPage() {
               {/* Breadcrumb */}
               <div className="flex items-center gap-2 text-sm text-gray-500 mb-8">
                 <Link
-                  href="/escola"
-                  className="hover:text-clr3 transition-colors flex gap-3"
+                  href="/espaco"
+                  className="hover:text-clr4 transition-colors flex gap-3"
                 >
                   <MdOutlineKeyboardReturn size={20} />
                   Espaço Cultural
                 </Link>
                 <span>/</span>
                 <Link
-                  href="/escola/oficinas"
-                  className="hover:text-clr3 transition-colors"
+                  href="/espaco/redes"
+                  className="hover:text-clr4 transition-colors"
                 >
-                  Oficinas
+                  Articulação em Redes
                 </Link>
                 <span>/</span>
-                <span className="text-clr3">{oficina.titulo}</span>
+                <span className="text-clr4">{redes.titulo}</span>
               </div>
 
               {/* Title & Info */}
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
                   {/* Badge Tipo */}
-                  <div className="inline-block px-4 py-2 rounded-full mb-6 text-sm font-bold uppercase tracking-wider bg-clr3/20 text-clr3">
-                    {oficina.tipo}
+                  <div className="inline-block px-4 py-2 rounded-full mb-6 text-sm font-bold uppercase tracking-wider bg-clr4/20 text-clr4">
+                    {redes.tipo}
                   </div>
 
                   <h1 className="text-6xl md:text-7xl font-black mb-4 leading-none">
-                    {oficina.titulo}
+                    {redes.titulo}
                   </h1>
 
-                  <div className="w-24 h-1 bg-clr3 mb-8" />
+                  <div className="w-24 h-1 bg-clr4 mb-8" />
 
                   <div className="space-y-4">
                     <div>
                       <h3 className="text-sm uppercase tracking-wider text-gray-500 mb-1">
                         Ano
                       </h3>
-                      <p className="text-2xl font-bold text-clr3">
-                        {oficina.ano}
+                      <p className="text-2xl font-bold text-clr4">
+                        {redes.ano}
                       </p>
                     </div>
                   </div>
@@ -131,7 +130,7 @@ function OficinaPage() {
                       Sobre evento
                     </h3>
                     <p className="text-lg text-gray-300 leading-relaxed">
-                      {oficina.descricao}
+                      {redes.descricao}
                     </p>
                   </div>
 
@@ -141,7 +140,7 @@ function OficinaPage() {
                         Data
                       </h3>
                       <p className="text-base font-semibold">
-                        {oficina.data}
+                        {redes.data}
                       </p>
                     </div>
                     <div>
@@ -149,7 +148,7 @@ function OficinaPage() {
                         Local
                       </h3>
                       <p className="text-base font-semibold">
-                        {oficina.local}
+                        {redes.local}
                       </p>
                     </div>
                   </div>
@@ -160,7 +159,7 @@ function OficinaPage() {
         </section>
 
         {/* Participantes */}
-        {oficina.participantes && (
+        {redes.participantes && (
           <section className="py-16 bg-black border-b border-zinc-800">
             <div className="max-w-7xl mx-auto px-8">
               <motion.div
@@ -170,7 +169,7 @@ function OficinaPage() {
               >
                 <h2 className="text-3xl font-black mb-4">Participantes</h2>
                 <p className="text-lg text-gray-300 leading-relaxed">
-                  {oficina.participantes}
+                  {redes.participantes}
                 </p>
               </motion.div>
             </div>
@@ -178,7 +177,7 @@ function OficinaPage() {
         )}
 
         {/* Programação */}
-        {oficina.programacao && oficina.programacao.length > 0 && (
+        {redes.programacao && redes.programacao.length > 0 && (
           <section className="py-16 bg-zinc-900">
             <div className="max-w-7xl mx-auto px-8">
               <motion.div
@@ -188,16 +187,16 @@ function OficinaPage() {
               >
                 <h2 className="text-3xl font-black mb-6">Programação</h2>
                 <div className="space-y-3">
-                  {oficina.programacao.map((item, i) => (
+                  {redes.programacao.map((item, i) => (
                     <motion.div
                       key={i}
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.1 }}
-                      className="flex items-start gap-3 border-l-2 border-clr3 pl-4 py-2"
+                      className="flex items-start gap-3 border-l-2 border-clr4 pl-4 py-2"
                     >
-                      <div className="w-2 h-2 rounded-full bg-clr3 mt-2 shrink-0" />
+                      <div className="w-2 h-2 rounded-full bg-clr4 mt-2 shrink-0" />
                       <p className="text-gray-300">{item}</p>
                     </motion.div>
                   ))}
@@ -231,26 +230,26 @@ function OficinaPage() {
               viewport={{ once: true }}
             >
               <h2 className="text-4xl md:text-5xl font-black mb-6">
-                Acompanhe nossos <span className="text-clr3">oficinas</span>
+                Acompanhe nossos <span className="text-clr4">redes</span>
               </h2>
               <p className="text-xl text-gray-400 mb-10">
                 Fique por dentro da programação cultural do CBARTES
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/espaco#oficinas">
+                <Link href="/espaco#redes">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-10 py-4 bg-clr3 text-white text-base font-bold uppercase tracking-widest rounded-full hover:bg-[#2a5299] transition-colors duration-300"
+                    className="px-10 py-4 bg-clr4 text-white text-base font-bold uppercase tracking-widest rounded-full hover:bg-[#2a5299] transition-colors duration-300"
                   >
-                    Ver mais oficinas
+                    Ver mais redes
                   </motion.button>
                 </Link>
                 <Link href="/espaco">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-10 py-4 bg-transparent border-2 border-clr3 text-clr3 text-base font-bold uppercase tracking-widest rounded-full hover:bg-clr3 hover:text-white transition-all duration-300"
+                    className="px-10 py-4 bg-transparent border-2 border-clr4 text-clr4 text-base font-bold uppercase tracking-widest rounded-full hover:bg-clr4 hover:text-white transition-all duration-300"
                   >
                     Voltar
                   </motion.button>
@@ -266,4 +265,4 @@ function OficinaPage() {
   );
 }
 
-export default OficinaPage;
+export default redesPage;

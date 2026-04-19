@@ -10,8 +10,8 @@ import CustomCursor from "@/components/cursor";
 import Footer from "@/components/footer";
 import GalleryWithLightbox from "@/components/galleryWithLightbox";
 import { MdOutlineKeyboardReturn } from "react-icons/md";
-import { eventos } from "@/data/espaco/eventos";
 import type { ImagemGaleria } from "@/components/galleryWithLightbox";
+import { eventos } from "@/data/espaco/eventos";
 
 function EventoPage() {
   const params = useParams();
@@ -162,7 +162,7 @@ function EventoPage() {
         {/* Participantes */}
         {evento.participantes && (
           <section className="py-16 bg-black border-b border-zinc-800">
-            <div className="max-w-4xl mx-auto px-8">
+            <div className="max-w-7xl mx-auto px-8">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -180,7 +180,7 @@ function EventoPage() {
         {/* Programação */}
         {evento.programacao && evento.programacao.length > 0 && (
           <section className="py-16 bg-zinc-900">
-            <div className="max-w-4xl mx-auto px-8">
+            <div className="max-w-7xl mx-auto px-8">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -224,7 +224,7 @@ function EventoPage() {
 
         {/* CTA */}
         <section className="py-20 bg-zinc-900 border-t border-zinc-800">
-          <div className="max-w-4xl mx-auto px-8 text-center">
+          <div className="max-w-7xl mx-auto px-8 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

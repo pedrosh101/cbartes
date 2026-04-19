@@ -17,7 +17,7 @@ import ctaImage from "@/public/images/pulso.webp";
 import { getEspetaculosParaTimeline } from "@/data/escola/espetaculos";
 import { depoimentos } from "@/data/depoimentos";
 import { cursos } from "@/data/escola/cursos";
-import { oficinasHistorico } from "@/data/escola/oficinasHistorico";
+import { oficinasHistorico } from "@/data/escola/oficinas";
 import CustomCursor from "@/components/cursor";
 import Footer from "@/components/footer";
 import { SelosLoop } from "@/components/selosloop";
