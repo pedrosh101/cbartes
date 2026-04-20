@@ -17,7 +17,7 @@ import ctaImage from "@/public/images/pulso.webp";
 import { getEspetaculosParaTimeline } from "@/data/escola/espetaculos";
 import { depoimentos } from "@/data/depoimentos";
 import { cursos } from "@/data/escola/cursos";
-import { oficinasHistorico } from "@/data/escola/oficinas";
+import { oficinas } from "@/data/escola/oficinas";
 import CustomCursor from "@/components/cursor";
 import Footer from "@/components/footer";
 import { SelosLoop } from "@/components/selosloop";
@@ -675,7 +675,7 @@ function Escola() {
                 </h3>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                {oficinasHistorico.map((o, i) => (
+                {/* {oficinas.map((o, i) => (
                   <Link key={i} href={`/escola/oficinas/${o.slug}`}>
                     <div
                       key={i}
@@ -689,7 +689,7 @@ function Escola() {
                       </p>
                     </div>
                   </Link>
-                ))}
+                ))} */}
               </div>
             </div>
 
