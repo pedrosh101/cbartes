@@ -108,12 +108,15 @@ function OficinasPage() {
                   >
                     <Link href={`/escola/oficinas/${oficina.slug}`}>
                       <div className="group cursor-pointer h-full">
-                        {/* Card com placeholder de imagem */}
-                        <div className="bg-zinc-800 rounded-sm overflow-hidden mb-4 aspect-video relative border border-zinc-700 hover:border-clr3 transition-all duration-500">
-                          {/* Placeholder - futuramente pode ser a primeira imagem do evento */}
-                          <div className="absolute inset-0 bg-linear-to-br from-zinc-700 to-zinc-800 group-hover:from-zinc-600 group-hover:to-zinc-700 transition-colors duration-500" />
+                        <div className="bg-zinc-800 rounded-sm overflow-hidden mb-4 aspect-video relative border border-zinc-700 hover:border-clr4 transition-all duration-500">
+                          <img
+                            src={
+                              oficina.imagens?.[0] || "/images/placeholder.png"
+                            }
+                            alt={oficina.titulo}
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
 
-                          {/* Overlay */}
                           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
 
                           {/* Badge do tipo */}
@@ -124,7 +127,7 @@ function OficinasPage() {
                           </div>
 
                           {/* Badge do ano */}
-                          <div className="absolute bottom-3 left-3 bg-clr3 px-3 py-1.5 rounded-full">
+                          <div className="absolute bottom-3 left-3 bg-clr4 px-3 py-1.5 rounded-full">
                             <span className="text-xs font-bold text-white">
                               {oficina.data}
                             </span>

@@ -52,7 +52,7 @@ function EventoPage() {
   // Gera array de imagens: /images/eventos/slug/1.jpg, 2.jpg...
   const imagens: ImagemGaleria[] = evento.imagensCount > 0
     ? Array.from({ length: evento.imagensCount }, (_, i) => ({
-        src: `/images/eventos/${slug}/${i + 1}.jpg`,
+        src: `/images/eventos/${slug}/${i + 1}.webp`,
         alt: `${evento.titulo} - Foto ${i + 1}`,
       }))
     : [];

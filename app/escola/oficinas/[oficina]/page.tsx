@@ -49,10 +49,9 @@ function OficinaPage() {
     );
   }
 
-  // Gera array de imagens: /images/oficinas/slug/1.jpg, 2.jpg...
   const imagens: ImagemGaleria[] = oficina.imagensCount > 0
     ? Array.from({ length: oficina.imagensCount }, (_, i) => ({
-        src: `/images/oficinas/${slug}/${i + 1}.jpg`,
+        src: `/images/oficinas/${slug}/${i + 1}.webp`,
         alt: `${oficina.titulo} - Foto ${i + 1}`,
       }))
     : [];
@@ -231,13 +230,13 @@ function OficinaPage() {
               viewport={{ once: true }}
             >
               <h2 className="text-4xl md:text-5xl font-black mb-6">
-                Acompanhe nossos <span className="text-clr3">oficinas</span>
+                Acompanhe nossas <span className="text-clr3">oficinas</span>
               </h2>
               <p className="text-xl text-gray-400 mb-10">
                 Fique por dentro da programação cultural do CBARTES
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/espaco#oficinas">
+                <Link href="/espaco/oficinas">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}

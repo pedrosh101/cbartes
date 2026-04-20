@@ -63,9 +63,9 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     selos: ["Redes"],
     imagensCount: 3,
     imagens: [
-      "/images/redes/2/1.webp",
-      "/images/redes/2/2.webp",
-      "/images/redes/2/3.webp",
+      "/images/redes/aula-teatro-belita-2022/1.webp",
+      "/images/redes/aula-teatro-belita-2022/2.webp",
+      "/images/redes/aula-teatro-belita-2022/3.webp",
     ],
   },
 
@@ -81,11 +81,12 @@ export const articulacaoRedes: Record<string, EventoRede> = {
       "Aula de Dança Contemporânea ministrada pelo professor Ditto Leite para os alunos do curso técnico de teatro do IFNMG.",
     participantes: "Ditto Leite (professor), alunos do curso técnico de teatro do IFNMG",
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 4,
     imagens: [
-      "/images/redes/3/1.webp",
-      "/images/redes/3/2.webp",
-      "/images/redes/3/3.webp",
+      "/images/redes/aula-danca-ifnmg-2022/1.webp",
+      "/images/redes/aula-danca-ifnmg-2022/2.webp",
+      "/images/redes/aula-danca-ifnmg-2022/3.webp",
+      "/images/redes/aula-danca-ifnmg-2022/4.webp",
     ],
   },
 
@@ -105,11 +106,14 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     participantes: "Ditto Leite e Jean Gimenes",
     parceiros: ["Circuito Cultural Banco do Nordeste", "Museu do Diamante"],
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 6,
     imagens: [
-      "/images/redes/4/1.webp",
-      "/images/redes/4/2.webp",
-      "/images/redes/4/3.webp",
+      "/images/redes/oficina-semana-museus-2023/1.webp",
+      "/images/redes/oficina-semana-museus-2023/2.webp",
+      "/images/redes/oficina-semana-museus-2023/3.webp",
+      "/images/redes/oficina-semana-museus-2023/4.webp",
+      "/images/redes/oficina-semana-museus-2023/5.webp",
+      "/images/redes/oficina-semana-museus-2023/6.webp",
     ],
   },
 
@@ -127,11 +131,10 @@ export const articulacaoRedes: Record<string, EventoRede> = {
       "Jean Gimenes (texto e direção), alunos da turma infantil de teatro do CBARTES",
     parceiros: ["Prefeitura Municipal de Diamantina"],
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 1,
     imagens: [
-      "/images/redes/5/1.webp",
-      "/images/redes/5/2.webp",
-      "/images/redes/5/3.webp",
+      "/images/redes/espetaculo-casa-misterios-2023/1.webp",
+
     ],
   },
 
@@ -147,11 +150,17 @@ export const articulacaoRedes: Record<string, EventoRede> = {
       "Exposição 'Filhos do Rio' do artista plástico Ditto Leite, exibida na Sala Marta Moura do Teatro Municipal de Diamantina.",
     participantes: "Ditto Leite (artista plástico)",
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 9,
     imagens: [
-      "/images/redes/6/1.webp",
-      "/images/redes/6/2.webp",
-      "/images/redes/6/3.webp",
+      "/images/redes/exposicao-filhos-rio-teatro-municipal-2023/1.webp",
+      "/images/redes/exposicao-filhos-rio-teatro-municipal-2023/2.webp",
+      "/images/redes/exposicao-filhos-rio-teatro-municipal-2023/3.webp",
+      "/images/redes/exposicao-filhos-rio-teatro-municipal-2023/4.webp",
+      "/images/redes/exposicao-filhos-rio-teatro-municipal-2023/5.webp",
+      "/images/redes/exposicao-filhos-rio-teatro-municipal-2023/6.webp",
+      "/images/redes/exposicao-filhos-rio-teatro-municipal-2023/7.webp",
+      "/images/redes/exposicao-filhos-rio-teatro-municipal-2023/8.webp",
+      "/images/redes/exposicao-filhos-rio-teatro-municipal-2023/9.webp",
     ],
   },
 
@@ -169,9 +178,9 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     selos: ["Redes"],
     imagensCount: 3,
     imagens: [
-      "/images/redes/7/1.webp",
-      "/images/redes/7/2.webp",
-      "/images/redes/7/3.webp",
+      "/images/redes/roda-ciencias-humanas-ufvjm-2023/1.webp",
+      "/images/redes/roda-ciencias-humanas-ufvjm-2023/2.webp",
+      "/images/redes/roda-ciencias-humanas-ufvjm-2023/3.webp",
     ],
   },
 
@@ -191,9 +200,9 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     selos: ["Redes"],
     imagensCount: 3,
     imagens: [
-      "/images/redes/8/1.webp",
-      "/images/redes/8/2.webp",
-      "/images/redes/8/3.webp",
+      "/images/redes/game-cenico-banco-nordeste-2024/1.webp",
+      "/images/redes/game-cenico-banco-nordeste-2024/2.webp",
+      "/images/redes/game-cenico-banco-nordeste-2024/3.webp",
     ],
   },
 
@@ -209,11 +218,21 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     participantes: "Ditto Leite (artista visual)",
     parceiros: ["PROEXC/UFVJM"],
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 13,
     imagens: [
-      "/images/redes/9/1.webp",
-      "/images/redes/9/2.webp",
-      "/images/redes/9/3.webp",
+      "/images/redes/roda-filhos-rio-ufvjm-2024/1.webp",
+      "/images/redes/roda-filhos-rio-ufvjm-2024/2.webp",
+      "/images/redes/roda-filhos-rio-ufvjm-2024/3.webp",
+      "/images/redes/roda-filhos-rio-ufvjm-2024/4.webp",
+      "/images/redes/roda-filhos-rio-ufvjm-2024/5.webp",
+      "/images/redes/roda-filhos-rio-ufvjm-2024/6.webp",
+      "/images/redes/roda-filhos-rio-ufvjm-2024/7.webp",
+      "/images/redes/roda-filhos-rio-ufvjm-2024/8.webp",
+      "/images/redes/roda-filhos-rio-ufvjm-2024/9.webp",
+      "/images/redes/roda-filhos-rio-ufvjm-2024/10.webp",
+      "/images/redes/roda-filhos-rio-ufvjm-2024/11.webp",
+      "/images/redes/roda-filhos-rio-ufvjm-2024/12.webp",
+      "/images/redes/roda-filhos-rio-ufvjm-2024/13.webp",
     ],
   },
 
@@ -229,11 +248,16 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     participantes: "Ditto Leite (artista visual)",
     parceiros: ["PROEXC/UFVJM"],
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 8,
     imagens: [
-      "/images/redes/10/1.webp",
-      "/images/redes/10/2.webp",
-      "/images/redes/10/3.webp",
+      "/images/redes/exposicao-filhos-rio-ufvjm-2024/1.webp",
+      "/images/redes/exposicao-filhos-rio-ufvjm-2024/2.webp",
+      "/images/redes/exposicao-filhos-rio-ufvjm-2024/3.webp",
+      "/images/redes/exposicao-filhos-rio-ufvjm-2024/4.webp",
+      "/images/redes/exposicao-filhos-rio-ufvjm-2024/5.webp",
+      "/images/redes/exposicao-filhos-rio-ufvjm-2024/6.webp",
+      "/images/redes/exposicao-filhos-rio-ufvjm-2024/7.webp",
+      "/images/redes/exposicao-filhos-rio-ufvjm-2024/8.webp",
     ],
   },
 
@@ -248,11 +272,12 @@ export const articulacaoRedes: Record<string, EventoRede> = {
       "Roda de conversa sobre 'Trajetória Artística como Construção de Identidade', promovida pelo Laboratório de Práticas de Ensino Pedagógico, Artes e Corporeidade (LAPP) no Espaço Ágora da UFVJM.",
     parceiros: ["LAPP/UFVJM"],
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 4,
     imagens: [
-      "/images/redes/11/1.webp",
-      "/images/redes/11/2.webp",
-      "/images/redes/11/3.webp",
+      "/images/redes/roda-trajetoria-artistica-lapp-2024/1.webp",
+      "/images/redes/roda-trajetoria-artistica-lapp-2024/2.webp",
+      "/images/redes/roda-trajetoria-artistica-lapp-2024/3.webp",
+      "/images/redes/roda-trajetoria-artistica-lapp-2024/4.webp",
     ],
   },
 
@@ -266,11 +291,11 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     descricao:
       "Primeiro Encontro de Cultura Popular e Coletivos Artísticos, realizado via Edital de Seleção Pública n.º 007/2024.",
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 2,
     imagens: [
-      "/images/redes/12/1.webp",
-      "/images/redes/12/2.webp",
-      "/images/redes/12/3.webp",
+      "/images/redes/encontro-cultura-popular-coletivos-2024/1.webp",
+      "/images/redes/encontro-cultura-popular-coletivos-2024/2.webp",
+
     ],
   },
 
@@ -285,11 +310,11 @@ export const articulacaoRedes: Record<string, EventoRede> = {
       "Debate promovido pela PANGEIA/UFVJM em parceria com a PROEXC pelo Mês do Orgulho Gay.",
     parceiros: ["PANGEIA/UFVJM", "PROEXC/UFVJM"],
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 2,
     imagens: [
-      "/images/redes/13/1.webp",
-      "/images/redes/13/2.webp",
-      "/images/redes/13/3.webp",
+      "/images/redes/debate-mes-orgulho-pangeia-2024/1.webp",
+      "/images/redes/debate-mes-orgulho-pangeia-2024/2.webp",
+ 
     ],
   },
 
@@ -305,11 +330,9 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     participantes:
       "Jean Gimenes (adaptação e direção), alunos da turma adulta de teatro do CBARTES",
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 0,
     imagens: [
-      "/images/redes/14/1.webp",
-      "/images/redes/14/2.webp",
-      "/images/redes/14/3.webp",
+
     ],
   },
 
@@ -327,9 +350,9 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     selos: ["Redes"],
     imagensCount: 3,
     imagens: [
-      "/images/redes/15/1.webp",
-      "/images/redes/15/2.webp",
-      "/images/redes/15/3.webp",
+      "/images/redes/exposicao-filhos-rio-janauba-2024/1.webp",
+      "/images/redes/exposicao-filhos-rio-janauba-2024/2.webp",
+      "/images/redes/exposicao-filhos-rio-janauba-2024/3.webp",
     ],
   },
 
@@ -343,11 +366,13 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     descricao:
       "Dinâmica teatral 'Ruptura do Silêncio', baseada no Teatro do Oprimido do dramaturgo Augusto Boal, realizada no Espaço Ágora da UFVJM.",
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 5,
     imagens: [
-      "/images/redes/16/1.webp",
-      "/images/redes/16/2.webp",
-      "/images/redes/16/3.webp",
+      "/images/redes/ruptura-silencio-ufvjm-2024/1.webp",
+      "/images/redes/ruptura-silencio-ufvjm-2024/2.webp",
+      "/images/redes/ruptura-silencio-ufvjm-2024/3.webp",
+      "/images/redes/ruptura-silencio-ufvjm-2024/3.webp",
+      "/images/redes/ruptura-silencio-ufvjm-2024/3.webp",
     ],
   },
 
@@ -362,19 +387,19 @@ export const articulacaoRedes: Record<string, EventoRede> = {
       "Consultoria com Thiago Alixandre, do Ponto de Cultura Parque da Autonomia (Votorantim/SP).",
     participantes: "Thiago Alixandre (Ponto de Cultura Parque da Autonomia – Votorantim/SP)",
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 2,
     imagens: [
-      "/images/redes/38/1.webp",
-      "/images/redes/38/2.webp",
-      "/images/redes/38/3.webp",
+      "/images/redes/consultoria-thiago-alixandre-2024/1.webp",
+      "/images/redes/consultoria-thiago-alixandre-2024/2.webp",
+   
     ],
   },
 
   // ─── 2025 ──────────────────────────────────────────────────────────────────
 
-  "reapresentacao-subevercirco-2025": {
-    titulo: "Reapresentação 'Subevercirco' — Teatro Santa Izabel",
-    slug: "reapresentacao-subevercirco-2025",
+  "reapresentacao-subvercirco-2025": {
+    titulo: "Reapresentação 'Subvercirco' — Teatro Santa Izabel",
+    slug: "reapresentacao-subvercirco-2025",
     ano: 2025,
     data: "15 de fevereiro de 2025",
     local: "Teatro Santa Izabel, Diamantina",
@@ -382,14 +407,14 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     gratuito: true,
     publico: "Crianças dos bairros atendidos pelo Projeto Um Quintal (CAZUZA)",
     descricao:
-      "Reapresentação do espetáculo 'Subevercirco' em parceria com o Banco do Nordeste, com apresentação gratuita para crianças dos bairros atendidos pelo Projeto Um Quintal (CAZUZA).",
+      "Reapresentação do espetáculo 'Subvercirco' em parceria com o Banco do Nordeste, com apresentação gratuita para crianças dos bairros atendidos pelo Projeto Um Quintal (CAZUZA).",
     parceiros: ["Banco do Nordeste"],
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 2,
     imagens: [
-      "/images/redes/17/1.webp",
-      "/images/redes/17/2.webp",
-      "/images/redes/17/3.webp",
+      "/images/redes/reapresentacao-subvercirco-2025/1.webp",
+      "/images/redes/reapresentacao-subvercirco-2025/2.webp",
+
     ],
   },
 
@@ -405,11 +430,11 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     participantes:
       "Ditto Leite (diretor artístico do CBARTES), Izabel Oliveira (professora e pesquisadora UFVJM)",
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 2,
     imagens: [
-      "/images/redes/18/1.webp",
-      "/images/redes/18/2.webp",
-      "/images/redes/18/3.webp",
+      "/images/redes/entrevista-pesquisa-ufvjm-2025/1.webp",
+      "/images/redes/entrevista-pesquisa-ufvjm-2025/2.webp",
+   
     ],
   },
 
@@ -425,11 +450,12 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     participantes: "Jean Gimenes (professor), Viviane Fortes (mediação)",
     parceiros: ["Associação de Ceramistas de Cachoeira do Fanado"],
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 4,
     imagens: [
-      "/images/redes/19/1.webp",
-      "/images/redes/19/2.webp",
-      "/images/redes/19/3.webp",
+      "/images/redes/oficina-oratoria-cachoeira-fanado-2025/1.webp",
+      "/images/redes/oficina-oratoria-cachoeira-fanado-2025/2.webp",
+      "/images/redes/oficina-oratoria-cachoeira-fanado-2025/3.webp",
+      "/images/redes/oficina-oratoria-cachoeira-fanado-2025/4.webp",
     ],
   },
 
@@ -444,11 +470,10 @@ export const articulacaoRedes: Record<string, EventoRede> = {
       "O CBARTES recebeu o diretor do 40.º FESTIVALE, Renato Paranhos, para estabelecer parceria e oferecer suporte ao evento.",
     participantes: "Renato Paranhos (diretor do 40.º FESTIVALE)",
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 1,
     imagens: [
-      "/images/redes/20/1.webp",
-      "/images/redes/20/2.webp",
-      "/images/redes/20/3.webp",
+      "/images/redes/parceria-festivale-2025/1.webp",
+
     ],
   },
 
@@ -465,11 +490,23 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     participantes: "Jean Gimenes (professor)",
     parceiros: ["Projeto Massangano"],
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 15,
     imagens: [
-      "/images/redes/21/1.webp",
-      "/images/redes/21/2.webp",
-      "/images/redes/21/3.webp",
+      "/images/redes/oficina-teatro-quilombo-massangano-2025/1.webp",
+      "/images/redes/oficina-teatro-quilombo-massangano-2025/2.webp",
+      "/images/redes/oficina-teatro-quilombo-massangano-2025/3.webp",
+      "/images/redes/oficina-teatro-quilombo-massangano-2025/4.webp",
+      "/images/redes/oficina-teatro-quilombo-massangano-2025/5.webp",
+      "/images/redes/oficina-teatro-quilombo-massangano-2025/6.webp",
+      "/images/redes/oficina-teatro-quilombo-massangano-2025/7.webp",
+      "/images/redes/oficina-teatro-quilombo-massangano-2025/8.webp",
+      "/images/redes/oficina-teatro-quilombo-massangano-2025/9.webp",
+      "/images/redes/oficina-teatro-quilombo-massangano-2025/10.webp",
+      "/images/redes/oficina-teatro-quilombo-massangano-2025/11.webp",
+      "/images/redes/oficina-teatro-quilombo-massangano-2025/12.webp",
+      "/images/redes/oficina-teatro-quilombo-massangano-2025/13.webp",
+      "/images/redes/oficina-teatro-quilombo-massangano-2025/14.webp",
+      "/images/redes/oficina-teatro-quilombo-massangano-2025/15.webp",
     ],
   },
 
@@ -485,11 +522,12 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     participantes:
       "Equipe CBARTES, Jeferson Burgarelli (prefeito), Alberes Mafra (secretário de Cultura)",
     selos: ["Redes", "Arte é Política"],
-    imagensCount: 3,
+    imagensCount: 4,
     imagens: [
-      "/images/redes/22/1.webp",
-      "/images/redes/22/2.webp",
-      "/images/redes/22/3.webp",
+      "/images/redes/reuniao-pnab-prefeitura-2025/1.webp",
+      "/images/redes/reuniao-pnab-prefeitura-2025/2.webp",
+      "/images/redes/reuniao-pnab-prefeitura-2025/3.webp",
+      "/images/redes/reuniao-pnab-prefeitura-2025/4.webp",
     ],
   },
 
@@ -510,11 +548,11 @@ export const articulacaoRedes: Record<string, EventoRede> = {
       "Museu do Diamante",
     ],
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 2,
     imagens: [
-      "/images/redes/23/1.webp",
-      "/images/redes/23/2.webp",
-      "/images/redes/23/3.webp",
+      "/images/redes/espetaculo-trupe-homem-so-2025/1.webp",
+      "/images/redes/espetaculo-trupe-homem-so-2025/2.webp",
+
     ],
   },
 
@@ -530,11 +568,16 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     participantes: "Allan Barros (artista mambembe – Paraíba)",
     parceiros: ["IFNMG"],
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 8,
     imagens: [
-      "/images/redes/24/1.webp",
-      "/images/redes/24/2.webp",
-      "/images/redes/24/3.webp",
+      "/images/redes/oficina-circonhecendo-2025/1.webp",
+      "/images/redes/oficina-circonhecendo-2025/2.webp",
+      "/images/redes/oficina-circonhecendo-2025/3.webp",
+      "/images/redes/oficina-circonhecendo-2025/4.webp",
+      "/images/redes/oficina-circonhecendo-2025/5.webp",
+      "/images/redes/oficina-circonhecendo-2025/6.webp",
+      "/images/redes/oficina-circonhecendo-2025/7.webp",
+      "/images/redes/oficina-circonhecendo-2025/8.webp",
     ],
   },
 
@@ -550,11 +593,15 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     participantes: "Edney D'Conti (bailarino – Rio de Janeiro)",
     parceiros: ["Circuito Cultural Banco do Nordeste"],
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 7,
     imagens: [
-      "/images/redes/25/1.webp",
-      "/images/redes/25/2.webp",
-      "/images/redes/25/3.webp",
+      "/images/redes/oficina-movimentos-memorias-2025/1.webp",
+      "/images/redes/oficina-movimentos-memorias-2025/2.webp",
+      "/images/redes/oficina-movimentos-memorias-2025/3.webp",
+      "/images/redes/oficina-movimentos-memorias-2025/4.webp",
+      "/images/redes/oficina-movimentos-memorias-2025/5.webp",
+      "/images/redes/oficina-movimentos-memorias-2025/6.webp",
+      "/images/redes/oficina-movimentos-memorias-2025/7.webp",
     ],
   },
 
@@ -570,11 +617,17 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     participantes: "Edney D'Conti (bailarino – Rio de Janeiro)",
     parceiros: ["Circuito Cultural Banco do Nordeste"],
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 8,
     imagens: [
-      "/images/redes/26/1.webp",
-      "/images/redes/26/2.webp",
-      "/images/redes/26/3.webp",
+      "/images/redes/espetaculo-o-invisivel-2025/1.webp",
+      "/images/redes/espetaculo-o-invisivel-2025/2.webp",
+      "/images/redes/espetaculo-o-invisivel-2025/3.webp",
+      "/images/redes/espetaculo-o-invisivel-2025/4.webp",
+      "/images/redes/espetaculo-o-invisivel-2025/5.webp",
+      "/images/redes/espetaculo-o-invisivel-2025/6.webp",
+      "/images/redes/espetaculo-o-invisivel-2025/7.webp",
+      "/images/redes/espetaculo-o-invisivel-2025/8.webp",
+
     ],
   },
 
@@ -589,11 +642,10 @@ export const articulacaoRedes: Record<string, EventoRede> = {
       "O CBARTES cedeu seu espaço para a pré-produção das gravações do longa-metragem 'O Capitão Engarrafado', da produtora Postura Digital.",
     parceiros: ["Postura Digital"],
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 1,
     imagens: [
-      "/images/redes/27/1.webp",
-      "/images/redes/27/2.webp",
-      "/images/redes/27/3.webp",
+      "/images/redes/apoio-capitao-engarrafado-2025/1.webp",
+
     ],
   },
 
@@ -608,11 +660,9 @@ export const articulacaoRedes: Record<string, EventoRede> = {
       "Primeiro encontro do Pré-Fórum do 2.º Fórum Mineiro de Dança, mediado por Ângela Viegas, articuladora pela região intermediária de Teófilo Otoni.",
     participantes: "Ângela Viegas (articuladora – região intermediária de Teófilo Otoni)",
     selos: ["Redes", "Arte é Política"],
-    imagensCount: 3,
+    imagensCount: 0,
     imagens: [
-      "/images/redes/28/1.webp",
-      "/images/redes/28/2.webp",
-      "/images/redes/28/3.webp",
+
     ],
   },
 
@@ -630,9 +680,9 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     selos: ["Redes", "Arte é Política"],
     imagensCount: 3,
     imagens: [
-      "/images/redes/29/1.webp",
-      "/images/redes/29/2.webp",
-      "/images/redes/29/3.webp",
+      "/images/redes/reuniao-camara-ldo-2025/1.webp",
+      "/images/redes/reuniao-camara-ldo-2025/2.webp",
+      "/images/redes/reuniao-camara-ldo-2025/3.webp",
     ],
   },
 
@@ -646,11 +696,10 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     descricao:
       "Segundo encontro do Pré-Fórum Mineiro de Dança.",
     selos: ["Redes", "Arte é Política"],
-    imagensCount: 3,
+    imagensCount: 1,
     imagens: [
-      "/images/redes/30/1.webp",
-      "/images/redes/30/2.webp",
-      "/images/redes/30/3.webp",
+      "/images/redes/pre-forum-danca-2-2025/1.webp",
+  
     ],
   },
 
@@ -664,11 +713,9 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     descricao:
       "Participação colaborativa do CBARTES no 40.º FESTIVALE.",
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 0,
     imagens: [
-      "/images/redes/31/1.webp",
-      "/images/redes/31/2.webp",
-      "/images/redes/31/3.webp",
+
     ],
   },
 
@@ -686,11 +733,24 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     participantes: "Cia. Pé Vermêi",
     parceiros: ["Circuito Cultural Banco do Nordeste"],
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 16,
     imagens: [
-      "/images/redes/32/1.webp",
-      "/images/redes/32/2.webp",
-      "/images/redes/32/3.webp",
+      "/images/redes/espetaculo-trem-bao-sopa-2025/1.webp",
+      "/images/redes/espetaculo-trem-bao-sopa-2025/2.webp",
+      "/images/redes/espetaculo-trem-bao-sopa-2025/3.webp",
+      "/images/redes/espetaculo-trem-bao-sopa-2025/4.webp",
+      "/images/redes/espetaculo-trem-bao-sopa-2025/5.webp",
+      "/images/redes/espetaculo-trem-bao-sopa-2025/6.webp",
+      "/images/redes/espetaculo-trem-bao-sopa-2025/7.webp",
+      "/images/redes/espetaculo-trem-bao-sopa-2025/8.webp",
+      "/images/redes/espetaculo-trem-bao-sopa-2025/9.webp",
+      "/images/redes/espetaculo-trem-bao-sopa-2025/10.webp",
+      "/images/redes/espetaculo-trem-bao-sopa-2025/11.webp",
+      "/images/redes/espetaculo-trem-bao-sopa-2025/12.webp",
+      "/images/redes/espetaculo-trem-bao-sopa-2025/13.webp",
+      "/images/redes/espetaculo-trem-bao-sopa-2025/14.webp",
+      "/images/redes/espetaculo-trem-bao-sopa-2025/15.webp",
+      "/images/redes/espetaculo-trem-bao-sopa-2025/16.webp",
     ],
   },
 
@@ -705,11 +765,9 @@ export const articulacaoRedes: Record<string, EventoRede> = {
       "Reapresentação do espetáculo 'Doroteia' no Teatro Santa Izabel, pelo Seminário 'Vozes, Direitos e Recomeços — Diamantina de Mãos Dadas no Combate à Violência contra a Mulher'. Realização: Comissão de Enfrentamento à Violência contra a Mulher da OAB Diamantina — 12.ª Subseção.",
     parceiros: ["OAB Diamantina — 12.ª Subseção"],
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 0,
     imagens: [
-      "/images/redes/34/1.webp",
-      "/images/redes/34/2.webp",
-      "/images/redes/34/3.webp",
+
     ],
   },
 
@@ -727,11 +785,9 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     participantes: "Cia. Pé Vermêi",
     parceiros: ["Circuito Cultural Banco do Nordeste"],
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 0,
     imagens: [
-      "/images/redes/33/1.webp",
-      "/images/redes/33/2.webp",
-      "/images/redes/33/3.webp",
+
     ],
   },
 
@@ -748,11 +804,13 @@ export const articulacaoRedes: Record<string, EventoRede> = {
       "Oficina 'Identidade Visual para Vestir' realizada pelo Circuito Cultural Banco do Nordeste em parceria com o CBARTES, na Comunidade de São João da Chapada — AFROPLAY.",
     parceiros: ["Circuito Cultural Banco do Nordeste"],
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 5,
     imagens: [
-      "/images/redes/35/1.webp",
-      "/images/redes/35/2.webp",
-      "/images/redes/35/3.webp",
+      "/images/redes/oficina-identidade-visual-afroplay-2025/1.webp",
+      "/images/redes/oficina-identidade-visual-afroplay-2025/2.webp",
+      "/images/redes/oficina-identidade-visual-afroplay-2025/3.webp",
+      "/images/redes/oficina-identidade-visual-afroplay-2025/3.webp",
+      "/images/redes/oficina-identidade-visual-afroplay-2025/3.webp",
     ],
   },
 
@@ -766,11 +824,23 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     descricao:
       "Reapresentação do espetáculo teatral 'Doroteia' no Festival de Inverno de Diamantina, no Teatro Santa Izabel.",
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 15,
     imagens: [
-      "/images/redes/36/1.webp",
-      "/images/redes/36/2.webp",
-      "/images/redes/36/3.webp",
+      "/images/redes/espetaculo-doroteia-festival-inverno-2025/1.webp",
+      "/images/redes/espetaculo-doroteia-festival-inverno-2025/2.webp",
+      "/images/redes/espetaculo-doroteia-festival-inverno-2025/3.webp",
+      "/images/redes/espetaculo-doroteia-festival-inverno-2025/4.webp",
+      "/images/redes/espetaculo-doroteia-festival-inverno-2025/5.webp",
+      "/images/redes/espetaculo-doroteia-festival-inverno-2025/6.webp",
+      "/images/redes/espetaculo-doroteia-festival-inverno-2025/7.webp",
+      "/images/redes/espetaculo-doroteia-festival-inverno-2025/8.webp",
+      "/images/redes/espetaculo-doroteia-festival-inverno-2025/9.webp",
+      "/images/redes/espetaculo-doroteia-festival-inverno-2025/10.webp",
+      "/images/redes/espetaculo-doroteia-festival-inverno-2025/11.webp",
+      "/images/redes/espetaculo-doroteia-festival-inverno-2025/12.webp",
+      "/images/redes/espetaculo-doroteia-festival-inverno-2025/13.webp",
+      "/images/redes/espetaculo-doroteia-festival-inverno-2025/14.webp",
+      "/images/redes/espetaculo-doroteia-festival-inverno-2025/15.webp",
     ],
   },
 
@@ -783,11 +853,10 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     tipo: "Encontro",
     descricao: "Participação do CBARTES no Fórum Mineiro de Dança.",
     selos: ["Redes", "Arte é Política"],
-    imagensCount: 3,
+    imagensCount: 1,
     imagens: [
-      "/images/redes/37/1.webp",
-      "/images/redes/37/2.webp",
-      "/images/redes/37/3.webp",
+      "/images/redes/forum-mineiro-danca-2025/1.webp",
+
     ],
   },
 
@@ -803,11 +872,10 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     participantes: "Ditto Leite (professor)",
     parceiros: ["Há Braços Poético / PROEX UFVJM"],
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 1,
     imagens: [
-      "/images/redes/39/1.webp",
-      "/images/redes/39/2.webp",
-      "/images/redes/39/3.webp",
+      "/images/redes/oficina-tracando-verbos-2025/1.webp",
+
     ],
   },
 
@@ -823,11 +891,19 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     participantes: "J. Veloso (Bahia)",
     parceiros: ["Música Medicina da Alma"],
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 11,
     imagens: [
-      "/images/redes/40/1.webp",
-      "/images/redes/40/2.webp",
-      "/images/redes/40/3.webp",
+      "/images/redes/show-j-veloso-2025/1.webp",
+      "/images/redes/show-j-veloso-2025/2.webp",
+      "/images/redes/show-j-veloso-2025/3.webp",
+      "/images/redes/show-j-veloso-2025/4.webp",
+      "/images/redes/show-j-veloso-2025/5.webp",
+      "/images/redes/show-j-veloso-2025/6.webp",
+      "/images/redes/show-j-veloso-2025/7.webp",
+      "/images/redes/show-j-veloso-2025/8.webp",
+      "/images/redes/show-j-veloso-2025/9.webp",
+      "/images/redes/show-j-veloso-2025/10.webp",
+      "/images/redes/show-j-veloso-2025/11.webp",
     ],
   },
 
@@ -842,11 +918,9 @@ export const articulacaoRedes: Record<string, EventoRede> = {
       "Documentário sobre o espetáculo infanto-juvenil 'Brincantes' do CBARTES, realizado em parceria com o Instituto Mundo e exibido durante a Mostra de Cinema Telas Amigáveis, no Cine Ritz (Cordeiro Mall).",
     parceiros: ["Instituto Mundo"],
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 0,
     imagens: [
-      "/images/redes/41/1.webp",
-      "/images/redes/41/2.webp",
-      "/images/redes/41/3.webp",
+ 
     ],
   },
 
@@ -862,11 +936,9 @@ export const articulacaoRedes: Record<string, EventoRede> = {
     participantes: "Janaína Fernandes Gonçalves de Laia (coordenação)",
     parceiros: ["PROEX UFVJM", "Associação Cultural Amigos do CBARTES"],
     selos: ["Redes"],
-    imagensCount: 3,
+    imagensCount: 0,
     imagens: [
-      "/images/redes/42/1.webp",
-      "/images/redes/42/2.webp",
-      "/images/redes/42/3.webp",
+
     ],
   },
 };

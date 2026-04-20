@@ -62,8 +62,8 @@ function RedesPage() {
               <div className="w-32 h-1 bg-clr4 mb-8" />
 
               <p className="text-xl text-gray-200 max-w-3xl leading-relaxed">
-                Confira as Articulação em Redes e atividades realizadas pelo Espaço Cultural
-                CBARTES
+                Confira as Articulação em Redes e atividades realizadas pelo
+                Espaço Cultural CBARTES
               </p>
             </motion.div>
           </div>
@@ -90,7 +90,9 @@ function RedesPage() {
                   <div className="text-7xl font-black text-clr4">{ano}</div>
                   <div className="text-base uppercase tracking-wider text-gray-500">
                     {redesPorAno[ano].length}{" "}
-                    {redesPorAno[ano].length === 1 ? "Articulação em Rede" : "Articulações em Rede"}
+                    {redesPorAno[ano].length === 1
+                      ? "Articulação em Rede"
+                      : "Articulações em Rede"}
                   </div>
                 </div>
                 <div className="w-24 h-1 bg-clr4" />
@@ -108,12 +110,15 @@ function RedesPage() {
                   >
                     <Link href={`/espaco/redes/${evento.slug}`}>
                       <div className="group cursor-pointer h-full">
-                        {/* Card com placeholder de imagem */}
                         <div className="bg-zinc-800 rounded-sm overflow-hidden mb-4 aspect-video relative border border-zinc-700 hover:border-clr4 transition-all duration-500">
-                          {/* Placeholder - futuramente pode ser a primeira imagem do evento */}
-                          <div className="absolute inset-0 bg-linear-to-br from-zinc-700 to-zinc-800 group-hover:from-zinc-600 group-hover:to-zinc-700 transition-colors duration-500" />
+                          <img
+                            src={
+                              evento.imagens?.[0] || "/images/placeholder.png"
+                            }
+                            alt={evento.titulo}
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
 
-                          {/* Overlay */}
                           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
 
                           {/* Badge do tipo */}
@@ -168,7 +173,7 @@ function RedesPage() {
               viewport={{ once: true }}
             >
               <h2 className="text-4xl md:text-5xl font-black mb-6">
-                Participe dos nossos <span className="text-clr4">redes</span>
+                Participe
               </h2>
               <p className="text-xl text-gray-400 mb-10">
                 Acompanhe a programação e seja parte da cultura em Diamantina

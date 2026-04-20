@@ -230,7 +230,7 @@ function redesPage() {
               viewport={{ once: true }}
             >
               <h2 className="text-4xl md:text-5xl font-black mb-6">
-                Acompanhe nossos <span className="text-clr4">redes</span>
+                Acompanhe
               </h2>
               <p className="text-xl text-gray-400 mb-10">
                 Fique por dentro da programação cultural do CBARTES
